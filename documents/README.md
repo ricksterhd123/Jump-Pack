@@ -1,6 +1,5 @@
 # Documents
 - [x] Project plan proposal
 - [x] Software specification requirements
-- [ ] Design
-- [ ] Testing
+- [ ] Design documentation
 
