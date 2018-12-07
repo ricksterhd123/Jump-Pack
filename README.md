@@ -1,5 +1,4 @@
-# INSE PROJECT
-## Jump pack
+# Jump pack
 - Automatically searches for games stored on your local PC on startup.
 - Provides a simple graphical user interface to compare and run all of 
 your games!
@@ -7,10 +6,17 @@ your games!
 page or search through our game store to find new games to play.
 - Does not require the internet to function which makes for a simple 
 alternative to steam or discord.
-## Our team
 
-## Progress
+# Our team
+ - James - Developer
+ - Ahmed - Database design
+ - Vihan - UX & UI
+ - Ricky - Plan meetings Developer
+ - Jose	- Developer
+ - Liam - Developer
 
- - [x] PPP
- - [ ] SRS
+# Progress
+ - [x] Project plan proposal
+ - [x] Software requirements specification
+ 
 
