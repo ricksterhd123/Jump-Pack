@@ -18,7 +18,7 @@ alternative to steam or discord.
 # Project road map
  - [x] Project plan proposal
  - [x] Software requirements specification
- - [ ] Design documentation
+ - [x] Design documentation
  - [ ] Prototype (demo and code)
  - [ ] Final submission 
 
