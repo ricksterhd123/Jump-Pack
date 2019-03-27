@@ -5,26 +5,26 @@
  */
 package ui;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
 /**
  *
- * @author nicekor
+ * @author up869373
  */
-public class logIn extends javax.swing.JFrame {
+public class HomePage extends javax.swing.JFrame {
 
     /**
-     * Creates new form logIn
+     * Creates new form HomePage
      */
     private int mousepX; // position X of the mouse when pressed
-    private int mousepY;// position Y of the mouse when pressed
+    private int mousepY; // position Y of the mouse when pressed
     
-    public logIn() {
+    
+    
+    public HomePage() {
         initComponents();
         centerWindow();
         addResizableImageToBtn(closeBtn, "/images/close.png");
@@ -41,22 +41,16 @@ public class logIn extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bg = new javax.swing.JPanel();
+        HpPanel = new javax.swing.JPanel();
         windowBar = new javax.swing.JPanel();
         closeBtn = new javax.swing.JButton();
         logo = new javax.swing.JLabel();
         title = new javax.swing.JLabel();
         minimizeBtn = new javax.swing.JButton();
-        userName = new javax.swing.JTextField();
-        lbluser = new javax.swing.JLabel();
-        lblpasswrd = new javax.swing.JLabel();
-        logIn = new javax.swing.JButton();
-        password = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
 
-        bg.setBackground(new java.awt.Color(233, 111, 42));
+        HpPanel.setBackground(new java.awt.Color(233, 111, 42));
 
         windowBar.setBackground(new java.awt.Color(237, 137, 80));
         windowBar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -80,7 +74,7 @@ public class logIn extends javax.swing.JFrame {
         });
 
         title.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        title.setText("JumpPack - Log In");
+        title.setText("JumpPack ");
 
         minimizeBtn.setBackground(new java.awt.Color(237, 137, 80));
         minimizeBtn.setForeground(new java.awt.Color(237, 137, 80));
@@ -98,9 +92,9 @@ public class logIn extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, windowBarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(title)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 380, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1728, Short.MAX_VALUE)
                 .addComponent(minimizeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(closeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -110,112 +104,50 @@ public class logIn extends javax.swing.JFrame {
             windowBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, windowBarLayout.createSequentialGroup()
-                .addContainerGap(13, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(windowBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(minimizeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(title)
                     .addComponent(closeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
+            .addGroup(windowBarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(title)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        userName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        userName.setForeground(new java.awt.Color(204, 204, 204));
-        userName.setText("Username");
-        userName.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                userNameMouseClicked(evt);
-            }
-        });
-
-        lbluser.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lbluser.setText("Username:");
-
-        lblpasswrd.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblpasswrd.setText("Password:");
-
-        logIn.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        logIn.setText("Log-In ");
-        logIn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logInActionPerformed(evt);
-            }
-        });
-
-        password.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        password.setForeground(new java.awt.Color(204, 204, 204));
-        password.setText("Password");
-        password.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                passwordMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
-        bg.setLayout(bgLayout);
-        bgLayout.setHorizontalGroup(
-            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout HpPanelLayout = new javax.swing.GroupLayout(HpPanel);
+        HpPanel.setLayout(HpPanelLayout);
+        HpPanelLayout.setHorizontalGroup(
+            HpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(windowBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(bgLayout.createSequentialGroup()
-                        .addComponent(logIn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24))
-                    .addGroup(bgLayout.createSequentialGroup()
-                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(bgLayout.createSequentialGroup()
-                                .addComponent(lblpasswrd)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(bgLayout.createSequentialGroup()
-                                .addComponent(lbluser)
-                                .addGap(37, 37, 37)
-                                .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(193, 193, 193))))
         );
-        bgLayout.setVerticalGroup(
-            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bgLayout.createSequentialGroup()
+        HpPanelLayout.setVerticalGroup(
+            HpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HpPanelLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
                 .addComponent(windowBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
-                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbluser))
-                .addGap(80, 80, 80)
-                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblpasswrd)
-                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(logIn, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
-                .addGap(22, 22, 22))
+                .addContainerGap(1038, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(HpPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(HpPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    // make the window bar draggable
-    private void windowBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_windowBarMouseDragged
-        int pX = evt.getXOnScreen();
-        int pY = evt.getYOnScreen();
-        this.setLocation(pX - mousepX, pY - mousepY);
-    }//GEN-LAST:event_windowBarMouseDragged
-
-    // get position of the mouse when the window bar is pressed
-    private void windowBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_windowBarMousePressed
-        mousepX = evt.getX();
-        mousepY = evt.getY();
-    }//GEN-LAST:event_windowBarMousePressed
 
     private void closeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtnActionPerformed
         System.exit(0);
@@ -225,48 +157,27 @@ public class logIn extends javax.swing.JFrame {
         this.setState(this.ICONIFIED);
     }//GEN-LAST:event_minimizeBtnActionPerformed
 
-    private void userNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userNameMouseClicked
-        userName.setText("");
-        userName.setForeground(Color.BLACK);
-    }//GEN-LAST:event_userNameMouseClicked
+    private void windowBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_windowBarMouseDragged
+        int pX = evt.getXOnScreen();
+        int pY = evt.getYOnScreen();
+        this.setLocation(pX - mousepX, pY - mousepY);
+    }//GEN-LAST:event_windowBarMouseDragged
 
-    private void logInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logInActionPerformed
-    String uname = userName.getText();
-    String pass = password.getText();
-    if(uname.equals("admin") && pass.equals("Password123"))
-    {
-      dispose();
-      HomePage a = new HomePage();
-      a.setVisible(true);
-    }
-    else
-    {
-      JOptionPane.showMessageDialog(this,"Incorrect login or password",
-      "Error",JOptionPane.ERROR_MESSAGE); 
-    }
-    }//GEN-LAST:event_logInActionPerformed
-
-    private void passwordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseClicked
-       password.setText("");
-       password.setForeground(Color.BLACK); 
-    }//GEN-LAST:event_passwordMouseClicked
+    private void windowBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_windowBarMousePressed
+        mousepX = evt.getX();
+        mousepY = evt.getY();
+    }//GEN-LAST:event_windowBarMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel bg;
+    private javax.swing.JPanel HpPanel;
     private javax.swing.JButton closeBtn;
-    private javax.swing.JLabel lblpasswrd;
-    private javax.swing.JLabel lbluser;
-    private javax.swing.JButton logIn;
     private javax.swing.JLabel logo;
     private javax.swing.JButton minimizeBtn;
-    private javax.swing.JPasswordField password;
     private javax.swing.JLabel title;
-    private javax.swing.JTextField userName;
     private javax.swing.JPanel windowBar;
     // End of variables declaration//GEN-END:variables
-
-    // changes position of the window to the center of the screen
+// changes position of the window to the center of the screen
     private void centerWindow() {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
@@ -291,4 +202,8 @@ public class logIn extends javax.swing.JFrame {
         
         label.setIcon(i);
     }
+
+
+
+
 }
