@@ -49,6 +49,7 @@ public class HomePage extends javax.swing.JFrame {
         minimizeBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         HpPanel.setBackground(new java.awt.Color(233, 111, 42));
 
@@ -154,7 +155,7 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_closeBtnActionPerformed
 
     private void minimizeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimizeBtnActionPerformed
-        this.setState(this.ICONIFIED);
+        this.setState(HomePage.ICONIFIED);
     }//GEN-LAST:event_minimizeBtnActionPerformed
 
     private void windowBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_windowBarMouseDragged

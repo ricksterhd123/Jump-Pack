@@ -5,6 +5,7 @@
  */
 package ui;
 
+import com.sun.glass.events.KeyEvent;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -121,9 +122,14 @@ public class logIn extends javax.swing.JFrame {
         userName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         userName.setForeground(new java.awt.Color(204, 204, 204));
         userName.setText("Username");
-        userName.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                userNameMouseClicked(evt);
+        userName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                userNameFocusGained(evt);
+            }
+        });
+        userName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                userNameKeyPressed(evt);
             }
         });
 
@@ -144,9 +150,14 @@ public class logIn extends javax.swing.JFrame {
         password.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         password.setForeground(new java.awt.Color(204, 204, 204));
         password.setText("Password");
-        password.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                passwordMouseClicked(evt);
+        password.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                passwordFocusGained(evt);
+            }
+        });
+        password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordKeyPressed(evt);
             }
         });
 
@@ -222,17 +233,13 @@ public class logIn extends javax.swing.JFrame {
     }//GEN-LAST:event_closeBtnActionPerformed
 
     private void minimizeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimizeBtnActionPerformed
-        this.setState(this.ICONIFIED);
+        this.setState(ICONIFIED);
     }//GEN-LAST:event_minimizeBtnActionPerformed
-
-    private void userNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userNameMouseClicked
-        userName.setText("");
-        userName.setForeground(Color.BLACK);
-    }//GEN-LAST:event_userNameMouseClicked
 
     private void logInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logInActionPerformed
     String uname = userName.getText();
     String pass = password.getText();
+        
     if(uname.equals("admin") && pass.equals("Password123"))
     {
       dispose();
@@ -246,10 +253,36 @@ public class logIn extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_logInActionPerformed
 
-    private void passwordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseClicked
-       password.setText("");
-       password.setForeground(Color.BLACK); 
-    }//GEN-LAST:event_passwordMouseClicked
+    private void userNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userNameFocusGained
+        String uname = userName.getText();
+        if(uname.equals("Username"))
+            {
+                userName.setText("");
+                userName.setForeground(Color.BLACK);   
+            }
+    }//GEN-LAST:event_userNameFocusGained
+
+    private void passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusGained
+        String pass = password.getText();
+     
+        if(pass.equals("Password"))
+            {
+                password.setText("");
+                password.setForeground(Color.BLACK);   
+            }                        
+    }//GEN-LAST:event_passwordFocusGained
+
+    private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+                logIn.doClick();
+        }
+    }//GEN-LAST:event_passwordKeyPressed
+
+    private void userNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userNameKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+                logIn.doClick();
+        }
+    }//GEN-LAST:event_userNameKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
