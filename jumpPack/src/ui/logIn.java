@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.concurrent.TimeUnit;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -242,13 +243,26 @@ public class logIn extends javax.swing.JFrame {
         
     if(uname.equals("admin") && pass.equals("Password123"))
     {
+      ;
+      
+        try
+        {
+            JOptionPane.showMessageDialog(null,"Logging in, Please wait...");
+            Thread.sleep(1000);
+            //JOptionPane.dispose();
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+      
       dispose();
       HomePage a = new HomePage();
       a.setVisible(true);
     }
     else
     {
-      JOptionPane.showMessageDialog(this,"Incorrect login or password",
+      JOptionPane.showMessageDialog(null,"Incorrect login or password",
       "Error",JOptionPane.ERROR_MESSAGE); 
     }
     }//GEN-LAST:event_logInActionPerformed

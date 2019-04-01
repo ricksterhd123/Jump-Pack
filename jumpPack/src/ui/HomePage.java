@@ -20,8 +20,13 @@ public class HomePage extends javax.swing.JFrame {
     /**
      * Creates new form HomePage
      */
+   
+    
+    
+    
     private int mousepX; // position X of the mouse when pressed
     private int mousepY; // position Y of the mouse when pressed
+    
     
     
     
@@ -31,6 +36,9 @@ public class HomePage extends javax.swing.JFrame {
         addResizableImageToBtn(closeBtn, "/images/close.png");
         addResizableImageToLbl(logo, "/images/jp_logo.png");
         addResizableImageToBtn(minimizeBtn, "/images/minimize.png");
+        
+        
+        
     }
 
     /**
@@ -75,6 +83,9 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
         windowBar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                windowBarMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 windowBarMousePressed(evt);
             }
@@ -151,9 +162,19 @@ public class HomePage extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jButton3.setText("Store");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jButton4.setText("Friends");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout NavLayout = new javax.swing.GroupLayout(Nav);
         Nav.setLayout(NavLayout);
@@ -168,18 +189,18 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         NavLayout.setVerticalGroup(
             NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(NavLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         Main.setLayout(new java.awt.CardLayout());
@@ -190,21 +211,21 @@ public class HomePage extends javax.swing.JFrame {
         Home.setLayout(HomeLayout);
         HomeLayout.setHorizontalGroup(
             HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1413, Short.MAX_VALUE)
+            .addGap(0, 1900, Short.MAX_VALUE)
             .addGroup(HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeLayout.createSequentialGroup()
-                    .addContainerGap(690, Short.MAX_VALUE)
+                    .addContainerGap(933, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(666, Short.MAX_VALUE)))
+                    .addContainerGap(910, Short.MAX_VALUE)))
         );
         HomeLayout.setVerticalGroup(
             HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 820, Short.MAX_VALUE)
+            .addGap(0, 860, Short.MAX_VALUE)
             .addGroup(HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeLayout.createSequentialGroup()
-                    .addContainerGap(402, Short.MAX_VALUE)
+                    .addContainerGap(423, Short.MAX_VALUE)
                     .addComponent(jLabel1)
-                    .addContainerGap(402, Short.MAX_VALUE)))
+                    .addContainerGap(423, Short.MAX_VALUE)))
         );
 
         Main.add(Home, "Home");
@@ -215,7 +236,7 @@ public class HomePage extends javax.swing.JFrame {
         Library.setLayout(LibraryLayout);
         LibraryLayout.setHorizontalGroup(
             LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1413, Short.MAX_VALUE)
+            .addGap(0, 1900, Short.MAX_VALUE)
             .addGroup(LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(LibraryLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -224,7 +245,7 @@ public class HomePage extends javax.swing.JFrame {
         );
         LibraryLayout.setVerticalGroup(
             LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 820, Short.MAX_VALUE)
+            .addGap(0, 860, Short.MAX_VALUE)
             .addGroup(LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(LibraryLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -240,7 +261,7 @@ public class HomePage extends javax.swing.JFrame {
         Store.setLayout(StoreLayout);
         StoreLayout.setHorizontalGroup(
             StoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1413, Short.MAX_VALUE)
+            .addGap(0, 1900, Short.MAX_VALUE)
             .addGroup(StoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(StoreLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -249,7 +270,7 @@ public class HomePage extends javax.swing.JFrame {
         );
         StoreLayout.setVerticalGroup(
             StoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 820, Short.MAX_VALUE)
+            .addGap(0, 860, Short.MAX_VALUE)
             .addGroup(StoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(StoreLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -265,7 +286,7 @@ public class HomePage extends javax.swing.JFrame {
         Friends.setLayout(FriendsLayout);
         FriendsLayout.setHorizontalGroup(
             FriendsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1413, Short.MAX_VALUE)
+            .addGap(0, 1900, Short.MAX_VALUE)
             .addGroup(FriendsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(FriendsLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -274,7 +295,7 @@ public class HomePage extends javax.swing.JFrame {
         );
         FriendsLayout.setVerticalGroup(
             FriendsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 820, Short.MAX_VALUE)
+            .addGap(0, 860, Short.MAX_VALUE)
             .addGroup(FriendsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(FriendsLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -290,11 +311,12 @@ public class HomePage extends javax.swing.JFrame {
             HpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(windowBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(HpPanelLayout.createSequentialGroup()
-                .addComponent(Nav, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(HpPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Main, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(HpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Main, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HpPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(Nav, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         HpPanelLayout.setVerticalGroup(
@@ -358,6 +380,28 @@ public class HomePage extends javax.swing.JFrame {
         CardLayout card = (CardLayout)Main.getLayout();
         card.show(Main, "Library");
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void windowBarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_windowBarMouseClicked
+        if (evt.getClickCount() == 2) {
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        
+        
+        pack();
+        
+        setSize(screenSize.width,screenSize.height);
+        setLocation(screenSize.width/2-this.getSize().width/2, screenSize.height/2-this.getSize().height/2);
+        }
+    }//GEN-LAST:event_windowBarMouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        CardLayout card = (CardLayout)Main.getLayout();
+        card.show(Main, "Store");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        CardLayout card = (CardLayout)Main.getLayout();
+        card.show(Main, "Friends");
+    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
