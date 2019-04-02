@@ -48,15 +48,15 @@ public class logIn extends javax.swing.JFrame {
         logo = new javax.swing.JLabel();
         title = new javax.swing.JLabel();
         minimizeBtn = new javax.swing.JButton();
-        userName = new javax.swing.JTextField();
-        lbluser = new javax.swing.JLabel();
-        lblpasswrd = new javax.swing.JLabel();
-        logIn = new javax.swing.JButton();
-        password = new javax.swing.JPasswordField();
+        userNameTxtField = new javax.swing.JTextField();
+        userLbl = new javax.swing.JLabel();
+        passLbl = new javax.swing.JLabel();
+        logInBtn = new javax.swing.JButton();
+        passTxtField = new javax.swing.JPasswordField();
         jSeparator1 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        cancelBtn = new javax.swing.JButton();
+        registerLbl = new javax.swing.JLabel();
+        registerBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -123,65 +123,62 @@ public class logIn extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        userName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        userName.setForeground(new java.awt.Color(204, 204, 204));
-        userName.setText("Username");
-        userName.addFocusListener(new java.awt.event.FocusAdapter() {
+        userNameTxtField.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        userNameTxtField.setForeground(new java.awt.Color(204, 204, 204));
+        userNameTxtField.setText("Username");
+        userNameTxtField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                userNameFocusGained(evt);
+                userNameTxtFieldFocusGained(evt);
             }
         });
-        userName.addActionListener(new java.awt.event.ActionListener() {
+        userNameTxtField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userNameActionPerformed(evt);
+                userNameTxtFieldActionPerformed(evt);
             }
         });
-        userName.addKeyListener(new java.awt.event.KeyAdapter() {
+        userNameTxtField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                userNameKeyPressed(evt);
+                userNameTxtFieldKeyPressed(evt);
             }
         });
 
-        lbluser.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lbluser.setText("Account name:");
+        userLbl.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        userLbl.setText("Account name:");
 
-        lblpasswrd.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblpasswrd.setText("Password:");
+        passLbl.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        passLbl.setText("Password:");
 
-        logIn.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        logIn.setText("Log-In ");
-        logIn.addActionListener(new java.awt.event.ActionListener() {
+        logInBtn.setText("Log-In ");
+        logInBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logInActionPerformed(evt);
+                logInBtnActionPerformed(evt);
             }
         });
 
-        password.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        password.setForeground(new java.awt.Color(204, 204, 204));
-        password.setText("Password");
-        password.addFocusListener(new java.awt.event.FocusAdapter() {
+        passTxtField.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        passTxtField.setForeground(new java.awt.Color(204, 204, 204));
+        passTxtField.setText("Password");
+        passTxtField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                passwordFocusGained(evt);
+                passTxtFieldFocusGained(evt);
             }
         });
-        password.addKeyListener(new java.awt.event.KeyAdapter() {
+        passTxtField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                passwordKeyPressed(evt);
+                passTxtFieldKeyPressed(evt);
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton1.setText("Cancel");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        cancelBtn.setText("Cancel");
+        cancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                cancelBtnActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Don't have a JumpPack account?");
+        registerLbl.setText("Don't have a JumpPack account?");
 
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton2.setText("Create a new account...");
+        registerBtn.setText("Create a new account...");
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
         bg.setLayout(bgLayout);
@@ -193,23 +190,23 @@ public class logIn extends javax.swing.JFrame {
                     .addGroup(bgLayout.createSequentialGroup()
                         .addGap(55, 55, 55)
                         .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblpasswrd)
-                            .addComponent(lbluser))
+                            .addComponent(passLbl)
+                            .addComponent(userLbl))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(bgLayout.createSequentialGroup()
-                                .addComponent(logIn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(logInBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(userNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(passTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(bgLayout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(bgLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addComponent(registerLbl)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2))
+                                .addComponent(registerBtn))
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
@@ -219,23 +216,23 @@ public class logIn extends javax.swing.JFrame {
                 .addComponent(windowBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbluser)
-                    .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(userLbl)
+                    .addComponent(userNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblpasswrd))
+                    .addComponent(passTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(logIn)
-                    .addComponent(jButton1))
+                    .addComponent(logInBtn)
+                    .addComponent(cancelBtn))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton2))
-                .addContainerGap(60, Short.MAX_VALUE))
+                    .addComponent(registerLbl)
+                    .addComponent(registerBtn))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -273,9 +270,9 @@ public class logIn extends javax.swing.JFrame {
         this.setState(ICONIFIED);
     }//GEN-LAST:event_minimizeBtnActionPerformed
 
-    private void logInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logInActionPerformed
-        String uname = userName.getText();
-        String pass = password.getText();
+    private void logInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logInBtnActionPerformed
+        String uname = userNameTxtField.getText();
+        String pass = passTxtField.getText();
 
         if (uname.equals("admin") && pass.equals("Password123")) {
 //        try
@@ -296,54 +293,54 @@ public class logIn extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Incorrect login or password",
                     "Error", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_logInActionPerformed
+    }//GEN-LAST:event_logInBtnActionPerformed
 
-    private void userNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userNameFocusGained
-        userName.setText("");
-        userName.setForeground(Color.BLACK);
-    }//GEN-LAST:event_userNameFocusGained
+    private void userNameTxtFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userNameTxtFieldFocusGained
+        userNameTxtField.setText("");
+        userNameTxtField.setForeground(Color.BLACK);
+    }//GEN-LAST:event_userNameTxtFieldFocusGained
 
-    private void passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusGained
-        password.setText("");
-        password.setForeground(Color.BLACK);
-    }//GEN-LAST:event_passwordFocusGained
+    private void passTxtFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passTxtFieldFocusGained
+        passTxtField.setText("");
+        passTxtField.setForeground(Color.BLACK);
+    }//GEN-LAST:event_passTxtFieldFocusGained
 
-    private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
+    private void passTxtFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passTxtFieldKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            logIn.doClick();
+            logInBtn.doClick();
         }
-    }//GEN-LAST:event_passwordKeyPressed
+    }//GEN-LAST:event_passTxtFieldKeyPressed
 
-    private void userNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userNameKeyPressed
+    private void userNameTxtFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userNameTxtFieldKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            logIn.doClick();
+            logInBtn.doClick();
         }
-    }//GEN-LAST:event_userNameKeyPressed
+    }//GEN-LAST:event_userNameTxtFieldKeyPressed
 
-    private void userNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameActionPerformed
+    private void userNameTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameTxtFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userNameActionPerformed
+    }//GEN-LAST:event_userNameTxtFieldActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_cancelBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
+    private javax.swing.JButton cancelBtn;
     private javax.swing.JButton closeBtn;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel lblpasswrd;
-    private javax.swing.JLabel lbluser;
-    private javax.swing.JButton logIn;
+    private javax.swing.JButton logInBtn;
     private javax.swing.JLabel logo;
     private javax.swing.JButton minimizeBtn;
-    private javax.swing.JPasswordField password;
+    private javax.swing.JLabel passLbl;
+    private javax.swing.JPasswordField passTxtField;
+    private javax.swing.JButton registerBtn;
+    private javax.swing.JLabel registerLbl;
     private javax.swing.JLabel title;
-    private javax.swing.JTextField userName;
+    private javax.swing.JLabel userLbl;
+    private javax.swing.JTextField userNameTxtField;
     private javax.swing.JPanel windowBar;
     // End of variables declaration//GEN-END:variables
 
