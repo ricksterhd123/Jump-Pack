@@ -20,25 +20,16 @@ public class HomePage extends javax.swing.JFrame {
     /**
      * Creates new form HomePage
      */
-   
-    
-    
-    
     private int mousepX; // position X of the mouse when pressed
     private int mousepY; // position Y of the mouse when pressed
-    
-    
-    
-    
+
     public HomePage() {
         initComponents();
         centerWindow();
         addResizableImageToBtn(closeBtn, "/images/close.png");
         addResizableImageToLbl(logo, "/images/jp_logo.png");
         addResizableImageToBtn(minimizeBtn, "/images/minimize.png");
-        
-        
-        
+
     }
 
     /**
@@ -62,9 +53,6 @@ public class HomePage extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         Main = new javax.swing.JPanel();
-        Home = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
         Library = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -72,6 +60,9 @@ public class HomePage extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         Friends = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        Home = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -207,47 +198,6 @@ public class HomePage extends javax.swing.JFrame {
 
         Main.setLayout(new java.awt.CardLayout());
 
-        jLabel1.setText("Home");
-
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dota.png.jpg"))); // NOI18N
-        jButton5.setAlignmentY(0.0F);
-        jButton5.setAutoscrolls(true);
-        jButton5.setContentAreaFilled(false);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout HomeLayout = new javax.swing.GroupLayout(Home);
-        Home.setLayout(HomeLayout);
-        HomeLayout.setHorizontalGroup(
-            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HomeLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(2232, Short.MAX_VALUE))
-            .addGroup(HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeLayout.createSequentialGroup()
-                    .addContainerGap(1169, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(1146, Short.MAX_VALUE)))
-        );
-        HomeLayout.setVerticalGroup(
-            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HomeLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(719, Short.MAX_VALUE))
-            .addGroup(HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeLayout.createSequentialGroup()
-                    .addContainerGap(423, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addContainerGap(423, Short.MAX_VALUE)))
-        );
-
-        Main.add(Home, "Home");
-
         jLabel2.setText("Library");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -340,6 +290,47 @@ public class HomePage extends javax.swing.JFrame {
 
         Main.add(Friends, "Friends");
 
+        jLabel1.setText("Home");
+
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dota.png.jpg"))); // NOI18N
+        jButton5.setAlignmentY(0.0F);
+        jButton5.setAutoscrolls(true);
+        jButton5.setContentAreaFilled(false);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout HomeLayout = new javax.swing.GroupLayout(Home);
+        Home.setLayout(HomeLayout);
+        HomeLayout.setHorizontalGroup(
+            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HomeLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(2232, Short.MAX_VALUE))
+            .addGroup(HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeLayout.createSequentialGroup()
+                    .addContainerGap(1169, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(1146, Short.MAX_VALUE)))
+        );
+        HomeLayout.setVerticalGroup(
+            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HomeLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(719, Short.MAX_VALUE))
+            .addGroup(HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeLayout.createSequentialGroup()
+                    .addContainerGap(423, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addContainerGap(423, Short.MAX_VALUE)))
+        );
+
+        Main.add(Home, "Home");
+
         javax.swing.GroupLayout HpPanelLayout = new javax.swing.GroupLayout(HpPanel);
         HpPanel.setLayout(HpPanelLayout);
         HpPanelLayout.setHorizontalGroup(
@@ -406,48 +397,45 @@ public class HomePage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        CardLayout card = (CardLayout)Main.getLayout();
+        CardLayout card = (CardLayout) Main.getLayout();
         card.show(Main, "Home");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        CardLayout card = (CardLayout)Main.getLayout();
+        CardLayout card = (CardLayout) Main.getLayout();
         card.show(Main, "Library");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void windowBarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_windowBarMouseClicked
         if (evt.getClickCount() == 2) {
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        
-        
-        pack();
-        
-        setSize(screenSize.width,screenSize.height);
-        setLocation(screenSize.width/2-this.getSize().width/2, screenSize.height/2-this.getSize().height/2);
+            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
+            pack();
+
+            setSize(screenSize.width, screenSize.height);
+            setLocation(screenSize.width / 2 - this.getSize().width / 2, screenSize.height / 2 - this.getSize().height / 2);
         }
     }//GEN-LAST:event_windowBarMouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        CardLayout card = (CardLayout)Main.getLayout();
+        CardLayout card = (CardLayout) Main.getLayout();
         card.show(Main, "Store");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        CardLayout card = (CardLayout)Main.getLayout();
+        CardLayout card = (CardLayout) Main.getLayout();
         card.show(Main, "Friends");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
-
-    
-
-    
-   
+//    BufferedImage dimg = img.getScaledInstance(64, 64,        Image.SCALE_SMOOTH);
+//
+//    ImageIcon imageIcon = new ImageIcon(dimg);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Friends;
@@ -476,30 +464,27 @@ public class HomePage extends javax.swing.JFrame {
 // changes position of the window to the center of the screen
     private void centerWindow() {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
     }
-    
+
     // this function adds an image to a button and makes it being the same size as the button
     private void addResizableImageToBtn(javax.swing.JButton button, String path) {
         ImageIcon myImage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(path)));
         Image img1 = myImage.getImage();
         Image img2 = img1.getScaledInstance(button.getWidth(), button.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon i = new ImageIcon(img2);
-        
+
         button.setIcon(i);
     }
-    
+
     // this function adds an image to a label and makes it being the same size as the label
     private void addResizableImageToLbl(javax.swing.JLabel label, String path) {
         ImageIcon myImage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(path)));
         Image img1 = myImage.getImage();
         Image img2 = img1.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon i = new ImageIcon(img2);
-        
+
         label.setIcon(i);
     }
-
-
-
 
 }
