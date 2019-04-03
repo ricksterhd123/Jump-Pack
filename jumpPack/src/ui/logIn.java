@@ -21,24 +21,32 @@ import javax.swing.UIManager;
 import javax.swing.plaf.ColorUIResource;
 
 /**
- *
- * @author nicekor
+ * <h1>LogIn Form</h1>
+ * The logIn is a class that provides a simple Graphical User
+ * Interface where the user is able to enter their account data
+ * to be able to login and enter in our app.
+ * Or to create an account which redirects the user to our
+ * registration form on a browser website.
+ * 
+ * @author Nicekor
+ * @author JamesR555
+ * @version 1.0
+ * @since 2019-03-26
  */
 public class logIn extends javax.swing.JFrame {
+    private int mousepX; // position X of the mouse when pressed
+    private int mousepY;// position Y of the mouse when pressed
 
     /**
      * Creates new form logIn
      */
-    private int mousepX; // position X of the mouse when pressed
-    private int mousepY;// position Y of the mouse when pressed
-
     public logIn() {
         initComponents();
         centerWindow();
         addResizableImageToBtn(closeBtn, "/images/close.png");
         addResizableImageToLbl(logo, "/images/jp_logo.png");
         addResizableImageToBtn(minimizeBtn, "/images/minimize.png");
-        customizeJOptionPane();
+        customiseJOptionPane();
     }
 
     /**
@@ -264,27 +272,51 @@ public class logIn extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    // make the window bar draggable
+    /**
+     * This method is used to make the customised window bar draggable.
+     * @param evt The MouseEvent
+     */
     private void windowBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_windowBarMouseDragged
         int pX = evt.getXOnScreen();
         int pY = evt.getYOnScreen();
         this.setLocation(pX - mousepX, pY - mousepY);
     }//GEN-LAST:event_windowBarMouseDragged
 
-    // get position of the mouse when the window bar is pressed
+    /**
+     * This method is used to change the instance variables:
+     * mousepX
+     * mousepY
+     * to the mouse current position when the window bar is pressed.
+     * @param evt The MouseEvent
+     */
     private void windowBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_windowBarMousePressed
         mousepX = evt.getX();
         mousepY = evt.getY();
     }//GEN-LAST:event_windowBarMousePressed
 
+    /**
+     * This method makes the close button end the application.
+     * @param evt The ActionEvent
+     */
     private void closeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtnActionPerformed
         System.exit(0);
     }//GEN-LAST:event_closeBtnActionPerformed
 
+    /**
+     * This method makes the minimise button minimise the application.
+     * @param evt The ActionEvent
+     */
     private void minimizeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimizeBtnActionPerformed
         this.setState(ICONIFIED);
     }//GEN-LAST:event_minimizeBtnActionPerformed
 
+    /**
+     * When the button "Login" is pressed, this method checks
+     * if the user data is correct, if it isn't it
+     * tells the user why he can't login, if it is the user gains access
+     * to the app and the HomePage is opened.
+     * @param evt The ActionEvent
+     */
     private void logInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logInBtnActionPerformed
         String uname = userNameTxtField.getText();
         String pass = passTxtField.getText();
@@ -308,22 +340,46 @@ public class logIn extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_logInBtnActionPerformed
 
+    /**
+     * This method makes the username text field become empty
+     * and the text colour
+     * if the user click on it as we have a placeholder.
+     * @param evt The FocusEvent
+     */
     private void userNameTxtFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userNameTxtFieldFocusGained
         userNameTxtField.setText("");
         userNameTxtField.setForeground(Color.BLACK);
     }//GEN-LAST:event_userNameTxtFieldFocusGained
 
+    /**
+     * This method makes the password text field become empty
+     * and the text colour black
+     * if the user click on it as we have a placeholder.
+     * @param evt The FocusEvent
+     */
     private void passTxtFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passTxtFieldFocusGained
         passTxtField.setText("");
         passTxtField.setForeground(Color.BLACK);
     }//GEN-LAST:event_passTxtFieldFocusGained
 
+    /**
+     * This method makes the user be able to click the
+     * login button by pressing the Enter Key
+     * while the password text field is on focus.
+     * @param evt The KeyEvent
+     */
     private void passTxtFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passTxtFieldKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             logInBtn.doClick();
         }
     }//GEN-LAST:event_passTxtFieldKeyPressed
 
+    /**
+     * This method makes the user be able to click the
+     * login button by pressing the Enter Key
+     * while the username text field is on focus.
+     * @param evt The KeyEvent
+     */
     private void userNameTxtFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userNameTxtFieldKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             logInBtn.doClick();
@@ -334,10 +390,21 @@ public class logIn extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_userNameTxtFieldActionPerformed
 
+    /**
+     * This method makes the cancel button end the app.
+     * @param evt The ActionEvent
+     */
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         System.exit(0);
     }//GEN-LAST:event_cancelBtnActionPerformed
 
+    /**
+     * When the register button is pressed the user is redirected
+     * to the following website:
+     * <a href="https://jumppack.herokuapp.com/register">JumpPack Registration </a>
+     * on his default browser.
+     * @param evt The ActionEvent
+     */
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
         if (Desktop.isDesktopSupported()) {
             Desktop desktop = Desktop.getDesktop();
@@ -371,13 +438,21 @@ public class logIn extends javax.swing.JFrame {
     private javax.swing.JPanel windowBar;
     // End of variables declaration//GEN-END:variables
 
-    // changes position of the window to the center of the screen
+    /**
+     * This method changes the position of the window
+     * to the center of the screen.
+     */
     private void centerWindow() {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
     }
 
-    // this function adds an image to a button and makes it being the same size as the button
+    /**
+     * This method adds a resizable image to a button and makes it being
+     * the same size as the button.
+     * @param button The JButton chosen.
+     * @param path The path of the image.
+     */
     private void addResizableImageToBtn(javax.swing.JButton button, String path) {
         ImageIcon myImage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(path)));
         Image img1 = myImage.getImage();
@@ -387,7 +462,12 @@ public class logIn extends javax.swing.JFrame {
         button.setIcon(i);
     }
 
-    // this function adds an image to a label and makes it being the same size as the label
+    /**
+     * This method adds a resizable image to a label and makes it being
+     * the same size as the label.
+     * @param label The JLabel chosen.
+     * @param path The path of the image.
+     */
     private void addResizableImageToLbl(javax.swing.JLabel label, String path) {
         ImageIcon myImage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(path)));
         Image img1 = myImage.getImage();
@@ -397,7 +477,10 @@ public class logIn extends javax.swing.JFrame {
         label.setIcon(i);
     }
 
-    private void customizeJOptionPane() {
+    /**
+     * This method customises the JOption Pane.
+     */
+    private void customiseJOptionPane() {
         JDialog.setDefaultLookAndFeelDecorated(true);
         UIManager.put("OptionPane.background", new ColorUIResource(237, 137, 80));
         UIManager.put("Panel.background", new ColorUIResource(237, 137, 80));
@@ -409,8 +492,9 @@ public class logIn extends javax.swing.JFrame {
         UIManager.put("OptionPane.warningDialog.titlePane.background", new ColorUIResource(233, 111, 42));
         UIManager.put("OptionPane.warningDialog.border.background", new ColorUIResource(233, 111, 42));
 
-        // this should let us change the close icon of the JOptionPane but I can't do it resizable as this first
+        // the following statement should let us change the close icon of the JOptionPane but I can't do it resizable as this first
         // argument is not an object, it's a string. We can always resize the icon that we have to become smaller (?)
+        
         //UIManager.put("InternalFrame.closeIcon", i);
     }
 }
