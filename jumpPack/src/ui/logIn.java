@@ -326,8 +326,8 @@ public class logIn extends javax.swing.JFrame {
         } else if (uname.equals("admin") && pass.equals("Password123")) {
             try {
                 JOptionPane.showMessageDialog(null, "Logging in, Please wait...");
-                Thread.sleep(1000);
-                //JOptionPane.dispose();
+                Thread.sleep(1);
+                dispose();
             } catch (InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
