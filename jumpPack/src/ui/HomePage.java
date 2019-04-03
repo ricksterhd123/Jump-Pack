@@ -62,6 +62,9 @@ public class HomePage extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         Main = new javax.swing.JPanel();
+        Home = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
         Library = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -69,9 +72,6 @@ public class HomePage extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         Friends = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        Home = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -207,6 +207,47 @@ public class HomePage extends javax.swing.JFrame {
 
         Main.setLayout(new java.awt.CardLayout());
 
+        jLabel1.setText("Home");
+
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dota.png.jpg"))); // NOI18N
+        jButton5.setAlignmentY(0.0F);
+        jButton5.setAutoscrolls(true);
+        jButton5.setContentAreaFilled(false);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout HomeLayout = new javax.swing.GroupLayout(Home);
+        Home.setLayout(HomeLayout);
+        HomeLayout.setHorizontalGroup(
+            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HomeLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(2232, Short.MAX_VALUE))
+            .addGroup(HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeLayout.createSequentialGroup()
+                    .addContainerGap(1169, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(1146, Short.MAX_VALUE)))
+        );
+        HomeLayout.setVerticalGroup(
+            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HomeLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(719, Short.MAX_VALUE))
+            .addGroup(HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeLayout.createSequentialGroup()
+                    .addContainerGap(423, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addContainerGap(423, Short.MAX_VALUE)))
+        );
+
+        Main.add(Home, "Home");
+
         jLabel2.setText("Library");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -298,47 +339,6 @@ public class HomePage extends javax.swing.JFrame {
         );
 
         Main.add(Friends, "Friends");
-
-        jLabel1.setText("Home");
-
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dota.png.jpg"))); // NOI18N
-        jButton5.setAlignmentY(0.0F);
-        jButton5.setAutoscrolls(true);
-        jButton5.setContentAreaFilled(false);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout HomeLayout = new javax.swing.GroupLayout(Home);
-        Home.setLayout(HomeLayout);
-        HomeLayout.setHorizontalGroup(
-            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HomeLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(2232, Short.MAX_VALUE))
-            .addGroup(HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeLayout.createSequentialGroup()
-                    .addContainerGap(1169, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(1146, Short.MAX_VALUE)))
-        );
-        HomeLayout.setVerticalGroup(
-            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HomeLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(719, Short.MAX_VALUE))
-            .addGroup(HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeLayout.createSequentialGroup()
-                    .addContainerGap(423, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addContainerGap(423, Short.MAX_VALUE)))
-        );
-
-        Main.add(Home, "Home");
 
         javax.swing.GroupLayout HpPanelLayout = new javax.swing.GroupLayout(HpPanel);
         HpPanel.setLayout(HpPanelLayout);
