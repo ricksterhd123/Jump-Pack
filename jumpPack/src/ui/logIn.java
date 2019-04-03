@@ -7,16 +7,18 @@ package ui;
 
 import com.sun.glass.events.KeyEvent;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
-import javax.swing.border.LineBorder;
 import javax.swing.plaf.ColorUIResource;
-
 
 /**
  *
@@ -188,6 +190,11 @@ public class logIn extends javax.swing.JFrame {
 
         registerBtn.setText("Create a new account...");
         registerBtn.setBorder(new javax.swing.border.MatteBorder(null));
+        registerBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
         bg.setLayout(bgLayout);
@@ -284,18 +291,14 @@ public class logIn extends javax.swing.JFrame {
 
         if (uname.isEmpty() || uname.equals("Username") || pass.isEmpty() || pass.equals("Password")) {
             JOptionPane.showMessageDialog(null, "Please enter your username and password!", "Warning", JOptionPane.WARNING_MESSAGE);
-        }
-        else if (uname.equals("admin") && pass.equals("Password123")) {
-//        try
-//        {
-//            JOptionPane.showMessageDialog(null,"Logging in, Please wait...");
-//            Thread.sleep(1000);
-//            //JOptionPane.dispose();
-//        }
-//        catch(InterruptedException ex)
-//        {
-//            Thread.currentThread().interrupt();
-//        }
+        } else if (uname.equals("admin") && pass.equals("Password123")) {
+            try {
+                JOptionPane.showMessageDialog(null, "Logging in, Please wait...");
+                Thread.sleep(1000);
+                //JOptionPane.dispose();
+            } catch (InterruptedException ex) {
+                Thread.currentThread().interrupt();
+            }
 
             dispose();
             HomePage a = new HomePage();
@@ -334,6 +337,20 @@ public class logIn extends javax.swing.JFrame {
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         System.exit(0);
     }//GEN-LAST:event_cancelBtnActionPerformed
+
+    private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
+        if (Desktop.isDesktopSupported()) {
+            Desktop desktop = Desktop.getDesktop();
+            try {
+                URI uri = new URI("https://jumppack.herokuapp.com/register");
+                desktop.browse(uri);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            } catch (URISyntaxException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_registerBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -379,19 +396,19 @@ public class logIn extends javax.swing.JFrame {
 
         label.setIcon(i);
     }
-    
+
     private void customizeJOptionPane() {
         JDialog.setDefaultLookAndFeelDecorated(true);
-        UIManager.put("OptionPane.background", new ColorUIResource(237,137,80));
-        UIManager.put("Panel.background", new ColorUIResource(237,137,80));
-        
-        UIManager.put("OptionPane.errorDialog.titlePane.background", new ColorUIResource(233,111,42));
-        UIManager.put("OptionPane.errorDialog.border.background", new ColorUIResource(233,111,42));
-        UIManager.put("OptionPane.questionDialog.titlePane.background", new ColorUIResource(233,111,42));
-        UIManager.put("OptionPane.questionDialog.border.background", new ColorUIResource(233,111,42));
-        UIManager.put("OptionPane.warningDialog.titlePane.background", new ColorUIResource(233,111,42));
-        UIManager.put("OptionPane.warningDialog.border.background", new ColorUIResource(233,111,42));
-        
+        UIManager.put("OptionPane.background", new ColorUIResource(237, 137, 80));
+        UIManager.put("Panel.background", new ColorUIResource(237, 137, 80));
+
+        UIManager.put("OptionPane.errorDialog.titlePane.background", new ColorUIResource(233, 111, 42));
+        UIManager.put("OptionPane.errorDialog.border.background", new ColorUIResource(233, 111, 42));
+        UIManager.put("OptionPane.questionDialog.titlePane.background", new ColorUIResource(233, 111, 42));
+        UIManager.put("OptionPane.questionDialog.border.background", new ColorUIResource(233, 111, 42));
+        UIManager.put("OptionPane.warningDialog.titlePane.background", new ColorUIResource(233, 111, 42));
+        UIManager.put("OptionPane.warningDialog.border.background", new ColorUIResource(233, 111, 42));
+
         // this should let us change the close icon of the JOptionPane but I can't do it resizable as this first
         // argument is not an object, it's a string. We can always resize the icon that we have to become smaller (?)
         //UIManager.put("InternalFrame.closeIcon", i);
