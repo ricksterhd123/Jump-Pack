@@ -446,9 +446,8 @@ public class HomePage extends javax.swing.JFrame {
 
     
 
-    BufferedImage dimg = img.getScaledInstance(64, 64,        Image.SCALE_SMOOTH);
-
-    ImageIcon imageIcon = new ImageIcon(dimg);
+    
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Friends;
