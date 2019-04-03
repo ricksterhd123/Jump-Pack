@@ -11,7 +11,12 @@ import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.border.LineBorder;
+import javax.swing.plaf.ColorUIResource;
+
 
 /**
  *
@@ -31,6 +36,7 @@ public class logIn extends javax.swing.JFrame {
         addResizableImageToBtn(closeBtn, "/images/close.png");
         addResizableImageToLbl(logo, "/images/jp_logo.png");
         addResizableImageToBtn(minimizeBtn, "/images/minimize.png");
+        customizeJOptionPane();
     }
 
     /**
@@ -149,6 +155,7 @@ public class logIn extends javax.swing.JFrame {
         passLbl.setText("Password:");
 
         logInBtn.setText("Log-In ");
+        logInBtn.setBorder(new javax.swing.border.MatteBorder(null));
         logInBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logInBtnActionPerformed(evt);
@@ -170,6 +177,7 @@ public class logIn extends javax.swing.JFrame {
         });
 
         cancelBtn.setText("Cancel");
+        cancelBtn.setBorder(new javax.swing.border.MatteBorder(null));
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelBtnActionPerformed(evt);
@@ -179,6 +187,7 @@ public class logIn extends javax.swing.JFrame {
         registerLbl.setText("Don't have a JumpPack account?");
 
         registerBtn.setText("Create a new account...");
+        registerBtn.setBorder(new javax.swing.border.MatteBorder(null));
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
         bg.setLayout(bgLayout);
@@ -186,29 +195,28 @@ public class logIn extends javax.swing.JFrame {
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(windowBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(bgLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(passLbl)
+                    .addComponent(userLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(bgLayout.createSequentialGroup()
+                        .addComponent(logInBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(userNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
+                .addGap(0, 51, Short.MAX_VALUE)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(bgLayout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(passLbl)
-                            .addComponent(userLbl))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(bgLayout.createSequentialGroup()
-                                .addComponent(logInBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(userNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(passTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(bgLayout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(bgLayout.createSequentialGroup()
-                                .addComponent(registerLbl)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(registerBtn))
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(48, Short.MAX_VALUE))
+                        .addComponent(registerLbl)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(50, 50, 50))
         );
         bgLayout.setVerticalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,16 +231,16 @@ public class logIn extends javax.swing.JFrame {
                     .addComponent(passTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(passLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(logInBtn)
-                    .addComponent(cancelBtn))
+                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(logInBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                    .addComponent(cancelBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(14, 14, 14)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(registerLbl)
-                    .addComponent(registerBtn))
-                .addContainerGap(64, Short.MAX_VALUE))
+                    .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registerLbl))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -274,7 +282,10 @@ public class logIn extends javax.swing.JFrame {
         String uname = userNameTxtField.getText();
         String pass = passTxtField.getText();
 
-        if (uname.equals("admin") && pass.equals("Password123")) {
+        if (uname.isEmpty() || uname.equals("Username") || pass.isEmpty() || pass.equals("Password")) {
+            JOptionPane.showMessageDialog(null, "Please enter your username and password!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else if (uname.equals("admin") && pass.equals("Password123")) {
 //        try
 //        {
 //            JOptionPane.showMessageDialog(null,"Logging in, Please wait...");
@@ -290,8 +301,7 @@ public class logIn extends javax.swing.JFrame {
             HomePage a = new HomePage();
             a.setVisible(true);
         } else {
-            JOptionPane.showMessageDialog(null, "Incorrect login or password",
-                    "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Incorrect login or password", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_logInBtnActionPerformed
 
@@ -368,5 +378,22 @@ public class logIn extends javax.swing.JFrame {
         ImageIcon i = new ImageIcon(img2);
 
         label.setIcon(i);
+    }
+    
+    private void customizeJOptionPane() {
+        JDialog.setDefaultLookAndFeelDecorated(true);
+        UIManager.put("OptionPane.background", new ColorUIResource(237,137,80));
+        UIManager.put("Panel.background", new ColorUIResource(237,137,80));
+        
+        UIManager.put("OptionPane.errorDialog.titlePane.background", new ColorUIResource(233,111,42));
+        UIManager.put("OptionPane.errorDialog.border.background", new ColorUIResource(233,111,42));
+        UIManager.put("OptionPane.questionDialog.titlePane.background", new ColorUIResource(233,111,42));
+        UIManager.put("OptionPane.questionDialog.border.background", new ColorUIResource(233,111,42));
+        UIManager.put("OptionPane.warningDialog.titlePane.background", new ColorUIResource(233,111,42));
+        UIManager.put("OptionPane.warningDialog.border.background", new ColorUIResource(233,111,42));
+        
+        // this should let us change the close icon of the JOptionPane but I can't do it resizable as this first
+        // argument is not an object, it's a string. We can always resize the icon that we have to become smaller (?)
+        //UIManager.put("InternalFrame.closeIcon", i);
     }
 }
