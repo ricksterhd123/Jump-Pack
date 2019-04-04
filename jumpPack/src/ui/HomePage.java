@@ -20,25 +20,16 @@ public class HomePage extends javax.swing.JFrame {
     /**
      * Creates new form HomePage
      */
-   
-    
-    
-    
     private int mousepX; // position X of the mouse when pressed
     private int mousepY; // position Y of the mouse when pressed
-    
-    
-    
-    
+
     public HomePage() {
         initComponents();
         centerWindow();
         addResizableImageToBtn(closeBtn, "/images/close.png");
         addResizableImageToLbl(logo, "/images/jp_logo.png");
         addResizableImageToBtn(minimizeBtn, "/images/minimize.png");
-        
-        
-        
+        addResizableImageToBtn(dotaBtn, "/images/dota.png.jpg");
     }
 
     /**
@@ -64,7 +55,7 @@ public class HomePage extends javax.swing.JFrame {
         Main = new javax.swing.JPanel();
         Home = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        dotaBtn = new javax.swing.JButton();
         Library = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -209,13 +200,13 @@ public class HomePage extends javax.swing.JFrame {
 
         jLabel1.setText("Home");
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dota.png.jpg"))); // NOI18N
-        jButton5.setAlignmentY(0.0F);
-        jButton5.setAutoscrolls(true);
-        jButton5.setContentAreaFilled(false);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        dotaBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dota.png.jpg"))); // NOI18N
+        dotaBtn.setAlignmentY(0.0F);
+        dotaBtn.setAutoscrolls(true);
+        dotaBtn.setContentAreaFilled(false);
+        dotaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                dotaBtnActionPerformed(evt);
             }
         });
 
@@ -225,7 +216,7 @@ public class HomePage extends javax.swing.JFrame {
             HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomeLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dotaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(2235, Short.MAX_VALUE))
             .addGroup(HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeLayout.createSequentialGroup()
@@ -237,7 +228,7 @@ public class HomePage extends javax.swing.JFrame {
             HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomeLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dotaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(719, Short.MAX_VALUE))
             .addGroup(HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeLayout.createSequentialGroup()
@@ -406,48 +397,42 @@ public class HomePage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        CardLayout card = (CardLayout)Main.getLayout();
+        CardLayout card = (CardLayout) Main.getLayout();
         card.show(Main, "Home");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        CardLayout card = (CardLayout)Main.getLayout();
+        CardLayout card = (CardLayout) Main.getLayout();
         card.show(Main, "Library");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void windowBarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_windowBarMouseClicked
         if (evt.getClickCount() == 2) {
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        
-        
-        pack();
-        
-        setSize(screenSize.width,screenSize.height);
-        setLocation(screenSize.width/2-this.getSize().width/2, screenSize.height/2-this.getSize().height/2);
+            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
+            pack();
+
+            setSize(screenSize.width, screenSize.height);
+            setLocation(screenSize.width / 2 - this.getSize().width / 2, screenSize.height / 2 - this.getSize().height / 2);
         }
     }//GEN-LAST:event_windowBarMouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        CardLayout card = (CardLayout)Main.getLayout();
+        CardLayout card = (CardLayout) Main.getLayout();
         card.show(Main, "Store");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        CardLayout card = (CardLayout)Main.getLayout();
+        CardLayout card = (CardLayout) Main.getLayout();
         card.show(Main, "Friends");
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void dotaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dotaBtnActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jButton5ActionPerformed
 
+    }//GEN-LAST:event_dotaBtnActionPerformed
 
-    
-
-    
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Friends;
@@ -458,11 +443,11 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel Nav;
     private javax.swing.JPanel Store;
     private javax.swing.JButton closeBtn;
+    private javax.swing.JButton dotaBtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -476,30 +461,27 @@ public class HomePage extends javax.swing.JFrame {
 // changes position of the window to the center of the screen
     private void centerWindow() {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
     }
-    
+
     // this function adds an image to a button and makes it being the same size as the button
     private void addResizableImageToBtn(javax.swing.JButton button, String path) {
         ImageIcon myImage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(path)));
         Image img1 = myImage.getImage();
         Image img2 = img1.getScaledInstance(button.getWidth(), button.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon i = new ImageIcon(img2);
-        
+
         button.setIcon(i);
     }
-    
+
     // this function adds an image to a label and makes it being the same size as the label
     private void addResizableImageToLbl(javax.swing.JLabel label, String path) {
         ImageIcon myImage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(path)));
         Image img1 = myImage.getImage();
         Image img2 = img1.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon i = new ImageIcon(img2);
-        
+
         label.setIcon(i);
     }
-
-
-
 
 }
