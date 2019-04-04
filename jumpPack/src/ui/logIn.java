@@ -17,6 +17,7 @@ import java.net.URISyntaxException;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 import javax.swing.UIManager;
 import javax.swing.plaf.ColorUIResource;
 
@@ -320,23 +321,37 @@ public class logIn extends javax.swing.JFrame {
     private void logInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logInBtnActionPerformed
         String uname = userNameTxtField.getText();
         String pass = passTxtField.getText();
+        
+        //When the user account database is created the .equals variable will need to be updated with the caried values from the complete web app 
+        
+           
+        if (uname.equals("admin") && pass.equals("Password123")) {
+          
+        JOptionPane loginMsg = new JOptionPane("Logging in, Please wait...", JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new Object[]{}, null);
+        final JDialog msg = loginMsg.createDialog(this, "Connecting..");
+                
+        new SwingWorker<Void, Void>() {
 
-        if (uname.isEmpty() || uname.equals("Username") || pass.isEmpty() || pass.equals("Password")) {
-            JOptionPane.showMessageDialog(null, "Please enter your username and password!", "Warning", JOptionPane.WARNING_MESSAGE);
-        } else if (uname.equals("admin") && pass.equals("Password123")) {
-            try {
-                JOptionPane.showMessageDialog(null, "Logging in, Please wait...");
-                Thread.sleep(1);
-                dispose();
-            } catch (InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }
+        @Override
+            protected Void doInBackground() throws Exception {
+            //Causes a tempoary delay for the log in  
+            Thread.sleep(2500); 
 
-            dispose();
-            HomePage a = new HomePage();
-            a.setVisible(true);
+            return null;
+         }
+
+         // this is called when background thread above has completed.
+            protected void done() {
+            msg.dispose();
+         };
+        }.execute();
+
+        msg.setVisible(true);
+        dispose();
+        HomePage a = new HomePage();
+        a.setVisible(true);
         } else {
-            JOptionPane.showMessageDialog(null, "Incorrect login or password", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Incorrect Username or Password", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_logInBtnActionPerformed
 
