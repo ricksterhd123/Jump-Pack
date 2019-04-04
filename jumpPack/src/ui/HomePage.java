@@ -226,12 +226,12 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(HomeLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(2232, Short.MAX_VALUE))
+                .addContainerGap(2235, Short.MAX_VALUE))
             .addGroup(HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeLayout.createSequentialGroup()
-                    .addContainerGap(1169, Short.MAX_VALUE)
+                    .addContainerGap(1170, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(1146, Short.MAX_VALUE)))
+                    .addContainerGap(1148, Short.MAX_VALUE)))
         );
         HomeLayout.setVerticalGroup(
             HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,7 +268,7 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(LibraryLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(2056, Short.MAX_VALUE))
+                .addContainerGap(2059, Short.MAX_VALUE))
             .addGroup(LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(LibraryLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -296,7 +296,7 @@ public class HomePage extends javax.swing.JFrame {
         Store.setLayout(StoreLayout);
         StoreLayout.setHorizontalGroup(
             StoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2372, Short.MAX_VALUE)
+            .addGap(0, 2375, Short.MAX_VALUE)
             .addGroup(StoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(StoreLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -321,7 +321,7 @@ public class HomePage extends javax.swing.JFrame {
         Friends.setLayout(FriendsLayout);
         FriendsLayout.setHorizontalGroup(
             FriendsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2372, Short.MAX_VALUE)
+            .addGap(0, 2375, Short.MAX_VALUE)
             .addGroup(FriendsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(FriendsLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
