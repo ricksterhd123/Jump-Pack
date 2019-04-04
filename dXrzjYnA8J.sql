@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 04, 2019 at 07:45 PM
+-- Generation Time: Apr 04, 2019 at 10:40 PM
 -- Server version: 8.0.13-4
 -- PHP Version: 7.2.15-0ubuntu0.18.04.2
 
@@ -25,6 +25,52 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Apex_Legends`
+--
+
+CREATE TABLE `Apex_Legends` (
+  `user_id` int(11) NOT NULL,
+  `purchased` varchar(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `installed` varchar(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `Apex_Legends`
+--
+
+INSERT INTO `Apex_Legends` (`user_id`, `purchased`, `installed`) VALUES
+(1, 'N', 'N'),
+(2, 'N', 'Y'),
+(3, 'Y', 'Y'),
+(4, 'Y', 'N'),
+(5, 'Y', 'Y');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Battlefield_V`
+--
+
+CREATE TABLE `Battlefield_V` (
+  `user_id` int(11) NOT NULL,
+  `purchased` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `installed` varchar(1) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `Battlefield_V`
+--
+
+INSERT INTO `Battlefield_V` (`user_id`, `purchased`, `installed`) VALUES
+(1, 'N', 'Y'),
+(2, 'Y', 'N'),
+(3, 'Y', 'Y'),
+(4, 'N', 'N'),
+(5, 'N', 'N');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `Chat_Log`
 --
 
@@ -34,6 +80,75 @@ CREATE TABLE `Chat_Log` (
   `user_id` int(11) DEFAULT NULL,
   `message` text COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Counter_Strike`
+--
+
+CREATE TABLE `Counter_Strike` (
+  `user_id` int(11) NOT NULL,
+  `purchased` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `installed` varchar(1) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `Counter_Strike`
+--
+
+INSERT INTO `Counter_Strike` (`user_id`, `purchased`, `installed`) VALUES
+(1, 'Y', 'Y'),
+(2, 'N', 'N'),
+(3, 'Y', 'N'),
+(4, 'Y', 'Y'),
+(5, 'N', 'Y');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Fifa_19`
+--
+
+CREATE TABLE `Fifa_19` (
+  `user_id` int(11) NOT NULL,
+  `purchased` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `installed` varchar(1) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `Fifa_19`
+--
+
+INSERT INTO `Fifa_19` (`user_id`, `purchased`, `installed`) VALUES
+(1, 'Y', 'Y'),
+(2, 'Y', 'Y'),
+(3, 'Y', 'N'),
+(4, 'N', 'Y'),
+(5, 'N', 'N');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Fortnite`
+--
+
+CREATE TABLE `Fortnite` (
+  `user_id` int(11) NOT NULL,
+  `purchased` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `installed` varchar(1) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `Fortnite`
+--
+
+INSERT INTO `Fortnite` (`user_id`, `purchased`, `installed`) VALUES
+(1, 'Y', 'Y'),
+(2, 'N', 'N'),
+(3, 'N', 'N'),
+(4, 'Y', 'N'),
+(5, 'N', 'Y');
 
 -- --------------------------------------------------------
 
@@ -69,6 +184,29 @@ INSERT INTO `Games` (`game_id`, `game_name`, `game_category`, `description`, `pr
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Grand_Theft_Auto_V`
+--
+
+CREATE TABLE `Grand_Theft_Auto_V` (
+  `user_id` int(11) NOT NULL,
+  `purchased` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `installed` varchar(1) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `Grand_Theft_Auto_V`
+--
+
+INSERT INTO `Grand_Theft_Auto_V` (`user_id`, `purchased`, `installed`) VALUES
+(1, 'N', 'N'),
+(2, 'N', 'Y'),
+(3, 'Y', 'N'),
+(4, 'N', 'N'),
+(5, 'Y', 'Y');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `User_Account`
 --
 
@@ -90,32 +228,21 @@ INSERT INTO `User_Account` (`user_id`, `user_name`, `user_email`, `user_password
 (4, 'HardGamer01', 'gamer_hard01@gmail.com', 'Abc1234'),
 (5, 'PortsmouthBoy2019', 'up555555@myport.ac.uk', 'Qvcg5696');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `User_Library`
---
-
-CREATE TABLE `User_Library` (
-  `user_id` int(11) DEFAULT NULL,
-  `game_id` int(100) DEFAULT NULL,
-  `Installed` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `User_Library`
---
-
-INSERT INTO `User_Library` (`user_id`, `game_id`, `Installed`) VALUES
-(1, 1, 1),
-(1, 2, 1),
-(1, 3, 0),
-(1, 4, 1),
-(1, 5, 0);
-
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `Apex_Legends`
+--
+ALTER TABLE `Apex_Legends`
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `Battlefield_V`
+--
+ALTER TABLE `Battlefield_V`
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `Chat_Log`
@@ -124,10 +251,34 @@ ALTER TABLE `Chat_Log`
   ADD PRIMARY KEY (`message_id`);
 
 --
+-- Indexes for table `Counter_Strike`
+--
+ALTER TABLE `Counter_Strike`
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `Fifa_19`
+--
+ALTER TABLE `Fifa_19`
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `Fortnite`
+--
+ALTER TABLE `Fortnite`
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `Games`
 --
 ALTER TABLE `Games`
   ADD PRIMARY KEY (`game_id`);
+
+--
+-- Indexes for table `Grand_Theft_Auto_V`
+--
+ALTER TABLE `Grand_Theft_Auto_V`
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `User_Account`
@@ -136,10 +287,44 @@ ALTER TABLE `User_Account`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- Indexes for table `User_Library`
+-- Constraints for dumped tables
 --
-ALTER TABLE `User_Library`
-  ADD KEY `PK/FK` (`user_id`,`game_id`);
+
+--
+-- Constraints for table `Apex_Legends`
+--
+ALTER TABLE `Apex_Legends`
+  ADD CONSTRAINT `Apex_Legends_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `Battlefield_V`
+--
+ALTER TABLE `Battlefield_V`
+  ADD CONSTRAINT `Battlefield_V_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `Counter_Strike`
+--
+ALTER TABLE `Counter_Strike`
+  ADD CONSTRAINT `Counter_Strike_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `Fifa_19`
+--
+ALTER TABLE `Fifa_19`
+  ADD CONSTRAINT `Fifa_19_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `Fortnite`
+--
+ALTER TABLE `Fortnite`
+  ADD CONSTRAINT `Fortnite_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `Grand_Theft_Auto_V`
+--
+ALTER TABLE `Grand_Theft_Auto_V`
+  ADD CONSTRAINT `Grand_Theft_Auto_V_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
