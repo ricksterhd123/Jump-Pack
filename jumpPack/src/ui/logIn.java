@@ -210,29 +210,31 @@ public class logIn extends javax.swing.JFrame {
         bgLayout.setHorizontalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(windowBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(bgLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(passLbl)
-                    .addComponent(userLbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(bgLayout.createSequentialGroup()
-                        .addComponent(logInBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(userNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
-                .addGap(0, 51, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(registerLbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(138, 138, 138))
+            .addGroup(bgLayout.createSequentialGroup()
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(bgLayout.createSequentialGroup()
-                        .addComponent(registerLbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(50, 50, 50))
+                        .addGap(73, 73, 73)
+                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(passLbl)
+                            .addComponent(userLbl))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(bgLayout.createSequentialGroup()
+                                .addComponent(logInBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(userNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(passTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(bgLayout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         bgLayout.setVerticalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,9 +252,9 @@ public class logIn extends javax.swing.JFrame {
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(logInBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                     .addComponent(cancelBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(registerLbl))
@@ -274,146 +276,6 @@ public class logIn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * This method is used to make the customised window bar draggable.
-     * @param evt The MouseEvent
-     */
-    private void windowBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_windowBarMouseDragged
-        int pX = evt.getXOnScreen();
-        int pY = evt.getYOnScreen();
-        this.setLocation(pX - mousepX, pY - mousepY);
-    }//GEN-LAST:event_windowBarMouseDragged
-
-    /**
-     * This method is used to change the instance variables:
-     * mousepX
-     * mousepY
-     * to the mouse current position when the window bar is pressed.
-     * @param evt The MouseEvent
-     */
-    private void windowBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_windowBarMousePressed
-        mousepX = evt.getX();
-        mousepY = evt.getY();
-    }//GEN-LAST:event_windowBarMousePressed
-
-    /**
-     * This method makes the close button end the application.
-     * @param evt The ActionEvent
-     */
-    private void closeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtnActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_closeBtnActionPerformed
-
-    /**
-     * This method makes the minimise button minimise the application.
-     * @param evt The ActionEvent
-     */
-    private void minimizeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimizeBtnActionPerformed
-        this.setState(ICONIFIED);
-    }//GEN-LAST:event_minimizeBtnActionPerformed
-
-    /**
-     * When the button "Login" is pressed, this method checks
-     * if the user data is correct, if it isn't it
-     * tells the user why he can't login, if it is the user gains access
-     * to the app and the HomePage is opened.
-     * @param evt The ActionEvent
-     */
-    private void logInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logInBtnActionPerformed
-        String uname = userNameTxtField.getText();
-        String pass = passTxtField.getText();
-        
-        //When the user account database is created the .equals variable will need to be updated with the caried values from the complete web app 
-        
-           
-        if (uname.equals("admin") && pass.equals("Password123")) {
-          
-        JOptionPane loginMsg = new JOptionPane("Logging in, Please wait...", JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new Object[]{}, null);
-        final JDialog msg = loginMsg.createDialog(this, "Connecting..");
-                
-        new SwingWorker<Void, Void>() {
-
-        @Override
-            protected Void doInBackground() throws Exception {
-            //Causes a tempoary delay for the log in  
-            Thread.sleep(2500); 
-
-            return null;
-         }
-
-         // this is called when background thread above has completed.
-            protected void done() {
-            msg.dispose();
-         };
-        }.execute();
-
-        msg.setVisible(true);
-        dispose();
-        HomePage a = new HomePage();
-        a.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Incorrect Username or Password", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_logInBtnActionPerformed
-
-    /**
-     * This method makes the username text field become empty
-     * and the text colour
-     * if the user click on it as we have a placeholder.
-     * @param evt The FocusEvent
-     */
-    private void userNameTxtFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userNameTxtFieldFocusGained
-        userNameTxtField.setText("");
-        userNameTxtField.setForeground(Color.BLACK);
-    }//GEN-LAST:event_userNameTxtFieldFocusGained
-
-    /**
-     * This method makes the password text field become empty
-     * and the text colour black
-     * if the user click on it as we have a placeholder.
-     * @param evt The FocusEvent
-     */
-    private void passTxtFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passTxtFieldFocusGained
-        passTxtField.setText("");
-        passTxtField.setForeground(Color.BLACK);
-    }//GEN-LAST:event_passTxtFieldFocusGained
-
-    /**
-     * This method makes the user be able to click the
-     * login button by pressing the Enter Key
-     * while the password text field is on focus.
-     * @param evt The KeyEvent
-     */
-    private void passTxtFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passTxtFieldKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            logInBtn.doClick();
-        }
-    }//GEN-LAST:event_passTxtFieldKeyPressed
-
-    /**
-     * This method makes the user be able to click the
-     * login button by pressing the Enter Key
-     * while the username text field is on focus.
-     * @param evt The KeyEvent
-     */
-    private void userNameTxtFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userNameTxtFieldKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            logInBtn.doClick();
-        }
-    }//GEN-LAST:event_userNameTxtFieldKeyPressed
-
-    private void userNameTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameTxtFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_userNameTxtFieldActionPerformed
-
-    /**
-     * This method makes the cancel button end the app.
-     * @param evt The ActionEvent
-     */
-    private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_cancelBtnActionPerformed
-
-    /**
      * When the register button is pressed the user is redirected
      * to the following website:
      * <a href="https://jumppack.herokuapp.com/register">JumpPack Registration </a>
@@ -433,6 +295,145 @@ public class logIn extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_registerBtnActionPerformed
+
+    /**
+     * This method makes the cancel button end the app.
+     * @param evt The ActionEvent
+     */
+    private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_cancelBtnActionPerformed
+
+    /**
+     * This method makes the user be able to click the
+     * login button by pressing the Enter Key
+     * while the password text field is on focus.
+     * @param evt The KeyEvent
+     */
+    private void passTxtFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passTxtFieldKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            logInBtn.doClick();
+        }
+    }//GEN-LAST:event_passTxtFieldKeyPressed
+
+    /**
+     * This method makes the password text field become empty
+     * and the text colour black
+     * if the user click on it as we have a placeholder.
+     * @param evt The FocusEvent
+     */
+    private void passTxtFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passTxtFieldFocusGained
+        passTxtField.setText("");
+        passTxtField.setForeground(Color.BLACK);
+    }//GEN-LAST:event_passTxtFieldFocusGained
+
+    /**
+     * When the button "Login" is pressed, this method checks
+     * if the user data is correct, if it isn't it
+     * tells the user why he can't login, if it is the user gains access
+     * to the app and the HomePage is opened.
+     * @param evt The ActionEvent
+     */
+    private void logInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logInBtnActionPerformed
+        String uname = userNameTxtField.getText();
+        String pass = passTxtField.getText();
+
+        //When the user account database is created the .equals variable will need to be updated with the caried values from the complete web app
+
+        if (uname.equals("admin") && pass.equals("Password123")) {
+
+            JOptionPane loginMsg = new JOptionPane("Logging in, Please wait...", JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new Object[]{}, null);
+            final JDialog msg = loginMsg.createDialog(this, "Connecting..");
+
+            new SwingWorker<Void, Void>() {
+
+                @Override
+                protected Void doInBackground() throws Exception {
+                    //Causes a tempoary delay for the log in
+                    Thread.sleep(2500);
+
+                    return null;
+                }
+
+                // this is called when background thread above has completed.
+                protected void done() {
+                    msg.dispose();
+                };
+            }.execute();
+
+            msg.setVisible(true);
+            dispose();
+            HomePage a = new HomePage();
+            a.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Incorrect Username or Password", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_logInBtnActionPerformed
+
+    /**
+     * This method makes the user be able to click the
+     * login button by pressing the Enter Key
+     * while the username text field is on focus.
+     * @param evt The KeyEvent
+     */
+    private void userNameTxtFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userNameTxtFieldKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            logInBtn.doClick();
+        }
+    }//GEN-LAST:event_userNameTxtFieldKeyPressed
+
+    private void userNameTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameTxtFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userNameTxtFieldActionPerformed
+
+    /**
+     * This method makes the username text field become empty
+     * and the text colour
+     * if the user click on it as we have a placeholder.
+     * @param evt The FocusEvent
+     */
+    private void userNameTxtFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userNameTxtFieldFocusGained
+        userNameTxtField.setText("");
+        userNameTxtField.setForeground(Color.BLACK);
+    }//GEN-LAST:event_userNameTxtFieldFocusGained
+
+    /**
+     * This method is used to change the instance variables:
+     * mousepX
+     * mousepY
+     * to the mouse current position when the window bar is pressed.
+     * @param evt The MouseEvent
+     */
+    private void windowBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_windowBarMousePressed
+        mousepX = evt.getX();
+        mousepY = evt.getY();
+    }//GEN-LAST:event_windowBarMousePressed
+
+    /**
+     * This method is used to make the customised window bar draggable.
+     * @param evt The MouseEvent
+     */
+    private void windowBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_windowBarMouseDragged
+        int pX = evt.getXOnScreen();
+        int pY = evt.getYOnScreen();
+        this.setLocation(pX - mousepX, pY - mousepY);
+    }//GEN-LAST:event_windowBarMouseDragged
+
+    /**
+     * This method makes the minimise button minimise the application.
+     * @param evt The ActionEvent
+     */
+    private void minimizeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimizeBtnActionPerformed
+        this.setState(ICONIFIED);
+    }//GEN-LAST:event_minimizeBtnActionPerformed
+
+    /**
+     * This method makes the close button end the application.
+     * @param evt The ActionEvent
+     */
+    private void closeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtnActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_closeBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
