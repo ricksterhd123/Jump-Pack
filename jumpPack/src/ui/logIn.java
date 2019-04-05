@@ -5,6 +5,7 @@
  */
 package ui;
 
+import okhttp3.*;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
 import java.awt.Desktop;
@@ -341,7 +342,18 @@ public class logIn extends javax.swing.JFrame {
         String pass = passTxtField.getText();
 
         //When the user account database is created the .equals variable will need to be updated with the caried values from the complete web app
+        HttpClient client = new HttpClient();
+        client.setAuthenticator(new Authenticator() {
+            @Override public Credential authenticate(
+      Proxy proxy, URL url, List<Challenge> challenges) throws IOException {
+    return Credential.basic("scott", "tiger");
+  }
 
+  @Override public Credential authenticateProxy(
+      Proxy proxy, URL url, List<Challenge> challenges) throws IOException {
+    return null;
+  }
+});
         if (uname.equals("admin") && pass.equals("Password123")) {
 
             JOptionPane loginMsg = new JOptionPane("Logging in, Please wait...", JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new Object[]{}, null);

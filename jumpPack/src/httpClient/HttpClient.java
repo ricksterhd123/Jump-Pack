@@ -6,9 +6,10 @@
 package httpClient;
 
 import java.io.IOException;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import okhttp3.*;
+import java.lang.Object;
+import java.util.concurrent.TimeUnit;
+
 import org.json.JSONArray;
 
 /**
@@ -16,19 +17,38 @@ import org.json.JSONArray;
  * @author nicekor
  */
 public class HttpClient {
+    private OkHttpClient.Builder client;
     
     public HttpClient() {
-        
+        this.client = new OkHttpClient.Builder();
     }
     
+    /**
+     * Set the authenticator header with username and password
+     * @param username - The username in the Authorization header
+     * @param password - The password in the Authorization header
+     */
+    public void setBasicAuth(String username, String password){
+        client.authenticator(new Authenticator() {
+            @Override
+            public Request authenticate(Route route, Response response) throws IOException {
+                String credential = Credentials.basic(username, password);
+                return response.request().newBuilder().header("Authorization", credential).build();
+            }
+        });
+    }
+    
+    public void setJWTAuth(String JWTEncodedString){
+        // todo
+    }
     public JSONArray getArray(String url) throws IOException {
-        OkHttpClient client = new OkHttpClient();
-        
         Request request = new Request.Builder()
                 .url(url)
                 .build();
-
-        try (Response response = client.newCall(request).execute()) {
+        
+        // Build it into an OkHttpClient
+        OkHttpClient c = this.client.build();
+        try (Response response = c.newCall(request).execute()) {
             JSONArray jsonArr = new JSONArray(response.body().string());
             return jsonArr;
         }

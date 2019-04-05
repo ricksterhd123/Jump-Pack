@@ -17,15 +17,7 @@ public class Main {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new logIn().setVisible(true);
-                
-                // Throws IOException 
-                try {
-                    new HomePage().setVisible(true);
-                }catch (Exception e){
-                    // Get exception message
-                    // TODO: Add alert popup
-                    System.out.println(e.getMessage());
-                }
+               
             }
         });
         
