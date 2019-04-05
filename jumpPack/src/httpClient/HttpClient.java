@@ -18,7 +18,7 @@ import org.json.JSONArray;
  */
 public class HttpClient {
     private OkHttpClient.Builder client;
-    
+    private static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
     public HttpClient() {
         this.client = new OkHttpClient.Builder().connectTimeout(10, TimeUnit.SECONDS).writeTimeout(10, TimeUnit.SECONDS).readTimeout(30, TimeUnit.SECONDS);
     }
@@ -47,8 +47,56 @@ public class HttpClient {
      */
     public void setJWTAuth(String JWTEncodedString){
         // todo
+        client.authenticator(new Authenticator() {
+            @Override
+            public Request authenticate(Route route, Response response) throws IOException {
+                System.out.println(response.message());
+                //if (response.code() == 401){ throw new IOException(); }
+                String credential = "Bearer " + JWTEncodedString;
+                return response.request().newBuilder().header("authorization", credential).build();
+            }
+        });
     }
     
+    /**
+     * HTTP POST JSON and get String response
+     * @param url
+     * @param json
+     * @return String response
+     * @throws IOException 
+     */
+    public String postJSONGetString(String url, String json) throws IOException {
+        RequestBody body = RequestBody.create(JSON, json);
+        Request request = new Request.Builder()
+            .url(url)
+            .post(body)
+            .build();
+        OkHttpClient c = this.client.build();
+        try (Response response = c.newCall(request).execute()) {
+            return response.body().string();
+        }
+    }
+    
+     /**
+     * HTTP POST JSON and get JSON response data 
+     * @param url
+     * @param json
+     * @return String response
+     * @throws IOException 
+     */
+    public JSONArray postJSONGetJSON(String url, String json) throws IOException {
+        RequestBody body = RequestBody.create(JSON, json);
+        Request request = new Request.Builder()
+            .url(url)
+            .post(body)
+            .build();
+        OkHttpClient c = this.client.build();
+        try (Response response = c.newCall(request).execute()) {
+            // JSON must start and end with '[' and ']'
+            JSONArray jsonArr = new JSONArray("[" + response.body().string() + "]");
+            return jsonArr;
+        }
+    }
     /**
      * GET HTTP response string from URL
      * @param url

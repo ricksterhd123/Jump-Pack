@@ -343,12 +343,15 @@ public class logIn extends javax.swing.JFrame {
         String pass = passTxtField.getText();
         
         HttpClient client = new HttpClient();
+        HttpClient jwtTest = new HttpClient();
+        // Add basic auth header to the request
         client.setBasicAuth(uname, pass);
+        // JWT we get back.
         String JWT = null;
         try {
+            // Throws IOException if the authentication was incorrect
             JWT = client.getString("https://jumppack.herokuapp.com/api/session");
-            System.out.println(JWT);
-            
+
             JOptionPane loginMsg = new JOptionPane("Logging in, Please wait...", JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new Object[]{}, null);
             final JDialog msg = loginMsg.createDialog(this, "Connecting..");
 
