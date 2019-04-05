@@ -19,6 +19,6 @@ alternative to steam or discord.
  - [x] Project plan proposal
  - [x] Software requirements specification
  - [x] Design documentation
- - [ ] Prototype (demo and code)
+ - [x] Prototype (demo and code)
  - [ ] Final submission 
 
