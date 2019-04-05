@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 04, 2019 at 10:40 PM
+-- Generation Time: Apr 05, 2019 at 02:31 PM
 -- Server version: 8.0.13-4
 -- PHP Version: 7.2.15-0ubuntu0.18.04.2
 
@@ -71,6 +71,29 @@ INSERT INTO `Battlefield_V` (`user_id`, `purchased`, `installed`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Borderlands 2`
+--
+
+CREATE TABLE `Borderlands 2` (
+  `user_id` int(11) NOT NULL,
+  `purchased` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `installed` varchar(1) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `Borderlands 2`
+--
+
+INSERT INTO `Borderlands 2` (`user_id`, `purchased`, `installed`) VALUES
+(1, 'Y', 'Y'),
+(2, 'N', 'N'),
+(3, 'Y', 'N'),
+(4, 'Y', 'Y'),
+(5, 'Y', 'N');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `Chat_Log`
 --
 
@@ -130,6 +153,29 @@ INSERT INTO `Fifa_19` (`user_id`, `purchased`, `installed`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Football Manager 2019`
+--
+
+CREATE TABLE `Football Manager 2019` (
+  `user_id` int(11) NOT NULL,
+  `purchased` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `installed` varchar(1) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `Football Manager 2019`
+--
+
+INSERT INTO `Football Manager 2019` (`user_id`, `purchased`, `installed`) VALUES
+(1, 'Y', 'Y'),
+(2, 'Y', 'N'),
+(3, 'N', 'N'),
+(4, 'Y', 'Y'),
+(5, 'N', 'N');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `Fortnite`
 --
 
@@ -179,7 +225,10 @@ INSERT INTO `Games` (`game_id`, `game_name`, `game_category`, `description`, `pr
 (6, 'Grand Theft Auto V', 'Open World', 'The game is played from either a third-person or first-person perspective and its world is navigated on foot or by vehicle. Players control the three lead protagonists throughout single-player and switch between them both during and outside missions. The story is centred on the heist sequences, and many missions involve shooting and driving gameplay. A \"wanted\" system governs the aggression of law enforcement response to players who commit crimes.', '25', 'Rockstar Games', 'Rockstar North'),
 (7, 'Football Manager 2019', 'Sport', 'Simulation gaming perfected. Create your unique footballing story by taking charge of the club you love. Complete control of this stunningly realistic game world is yours - every decision in your hands, or yours to delegate. Your call, your way, your story. Everything you\'ve ever dreamed of!', '38', 'SEGA', 'Sports Interactive'),
 (8, 'Borderlands 2', 'FPS', 'Shoot and loot as you explore the mayhem-filled world of Pandora in Borderlands 2 and the lunar madness of Borderlands: The Pre-Sequel in Borderlands: The Handsome Collection. Experience the award-winning FPS-RPG series, including its bazillions of guns, trademark cooperative gameplay, and all bonus add-on content.\r\n', '20', '2K', 'Gearbox Software'),
-(9, 'RollarCoaster Tycoon Adventures ', 'Simulation', 'Casual, user-friendly park simulation and a cheery new visual style let players of all ages create the theme park of their dreams!', '25', 'Atari', 'Nvizzio Creations');
+(9, 'RollarCoaster Tycoon Adventures ', 'Simulation', 'Casual, user-friendly park simulation and a cheery new visual style let players of all ages create the theme park of their dreams!', '25', 'Atari', 'Nvizzio Creations'),
+(10, 'Islanders', 'Indie', 'A minimalist strategy game about building cities on colorful islands.', '5', 'GrizzlyGames', 'GrizzlyGames'),
+(11, 'Project Cars 2', 'Racing', 'Project Cars 2 delivers the soul of motor racing in the world’s most beautiful, authentic, and technically-advanced racing game.', '45', 'BANDAI NAMCO Entertainment', 'Slightly Mad Studios'),
+(12, 'Super Dragon Ball Heros World Mission', 'Strategy', 'A Tactical-Card game packed with exhilarating confrontation, deep card game strategy and a thrilling storyline taking place in the wide Dragon Ball Heroes universe!', '40', ' BANDAI NAMCO Entertainment', 'Dimps Corporation');
 
 -- --------------------------------------------------------
 
@@ -207,6 +256,98 @@ INSERT INTO `Grand_Theft_Auto_V` (`user_id`, `purchased`, `installed`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Islanders`
+--
+
+CREATE TABLE `Islanders` (
+  `user_id` int(11) NOT NULL,
+  `purchased` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `installed` varchar(1) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `Islanders`
+--
+
+INSERT INTO `Islanders` (`user_id`, `purchased`, `installed`) VALUES
+(1, 'N', 'N'),
+(2, 'Y', 'N'),
+(3, 'Y', 'N'),
+(4, 'N', 'N'),
+(5, 'Y', 'Y');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Project Cars 2`
+--
+
+CREATE TABLE `Project Cars 2` (
+  `user_id` int(11) NOT NULL,
+  `purchased` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `installed` varchar(1) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `Project Cars 2`
+--
+
+INSERT INTO `Project Cars 2` (`user_id`, `purchased`, `installed`) VALUES
+(1, 'N', 'N'),
+(2, 'Y', 'Y'),
+(3, 'Y', 'N'),
+(4, 'N', 'N'),
+(5, 'Y', 'Y');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `RollarCoaster Tycoon Adventures`
+--
+
+CREATE TABLE `RollarCoaster Tycoon Adventures` (
+  `user_id` int(11) NOT NULL,
+  `purchased` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `installed` varchar(1) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `RollarCoaster Tycoon Adventures`
+--
+
+INSERT INTO `RollarCoaster Tycoon Adventures` (`user_id`, `purchased`, `installed`) VALUES
+(1, 'N', 'N'),
+(2, 'Y', 'Y'),
+(3, 'N', 'N'),
+(4, 'N', 'N'),
+(5, 'Y', 'N');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Super Dragon Ball Heroes World Mission`
+--
+
+CREATE TABLE `Super Dragon Ball Heroes World Mission` (
+  `user_id` int(11) NOT NULL,
+  `purchased` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `installed` varchar(1) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `Super Dragon Ball Heroes World Mission`
+--
+
+INSERT INTO `Super Dragon Ball Heroes World Mission` (`user_id`, `purchased`, `installed`) VALUES
+(1, 'Y', 'Y'),
+(2, 'Y', 'Y'),
+(3, 'Y', 'Y'),
+(4, 'Y', 'Y'),
+(5, 'Y', 'Y');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `User_Account`
 --
 
@@ -226,7 +367,8 @@ INSERT INTO `User_Account` (`user_id`, `user_name`, `user_email`, `user_password
 (2, 'Nour-07', 'a.m.nour7@gmail.com', 'N290897'),
 (3, 'Shooter007', 'shooter007@gmail.com', 'Sh007070'),
 (4, 'HardGamer01', 'gamer_hard01@gmail.com', 'Abc1234'),
-(5, 'PortsmouthBoy2019', 'up555555@myport.ac.uk', 'Qvcg5696');
+(5, 'PortsmouthBoy2019', 'up555555@myport.ac.uk', 'Qvcg5696'),
+(6, 'test', 'test@test.com', 'test');
 
 --
 -- Indexes for dumped tables
@@ -236,37 +378,51 @@ INSERT INTO `User_Account` (`user_id`, `user_name`, `user_email`, `user_password
 -- Indexes for table `Apex_Legends`
 --
 ALTER TABLE `Apex_Legends`
-  ADD KEY `user_id` (`user_id`);
+  ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `Battlefield_V`
 --
 ALTER TABLE `Battlefield_V`
-  ADD KEY `user_id` (`user_id`);
+  ADD UNIQUE KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `Borderlands 2`
+--
+ALTER TABLE `Borderlands 2`
+  ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `Chat_Log`
 --
 ALTER TABLE `Chat_Log`
-  ADD PRIMARY KEY (`message_id`);
+  ADD PRIMARY KEY (`message_id`),
+  ADD UNIQUE KEY `message_id` (`message_id`),
+  ADD KEY `chat_log_ibfk_1` (`user_id`);
 
 --
 -- Indexes for table `Counter_Strike`
 --
 ALTER TABLE `Counter_Strike`
-  ADD KEY `user_id` (`user_id`);
+  ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `Fifa_19`
 --
 ALTER TABLE `Fifa_19`
-  ADD KEY `user_id` (`user_id`);
+  ADD UNIQUE KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `Football Manager 2019`
+--
+ALTER TABLE `Football Manager 2019`
+  ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `Fortnite`
 --
 ALTER TABLE `Fortnite`
-  ADD KEY `user_id` (`user_id`);
+  ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `Games`
@@ -278,13 +434,59 @@ ALTER TABLE `Games`
 -- Indexes for table `Grand_Theft_Auto_V`
 --
 ALTER TABLE `Grand_Theft_Auto_V`
-  ADD KEY `user_id` (`user_id`);
+  ADD UNIQUE KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `Islanders`
+--
+ALTER TABLE `Islanders`
+  ADD UNIQUE KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `Project Cars 2`
+--
+ALTER TABLE `Project Cars 2`
+  ADD UNIQUE KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `RollarCoaster Tycoon Adventures`
+--
+ALTER TABLE `RollarCoaster Tycoon Adventures`
+  ADD UNIQUE KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `Super Dragon Ball Heroes World Mission`
+--
+ALTER TABLE `Super Dragon Ball Heroes World Mission`
+  ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `User_Account`
 --
 ALTER TABLE `User_Account`
   ADD PRIMARY KEY (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `Chat_Log`
+--
+ALTER TABLE `Chat_Log`
+  MODIFY `message_id` int(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `Games`
+--
+ALTER TABLE `Games`
+  MODIFY `game_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `User_Account`
+--
+ALTER TABLE `User_Account`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
@@ -294,37 +496,79 @@ ALTER TABLE `User_Account`
 -- Constraints for table `Apex_Legends`
 --
 ALTER TABLE `Apex_Legends`
-  ADD CONSTRAINT `Apex_Legends_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `apex_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `Battlefield_V`
 --
 ALTER TABLE `Battlefield_V`
-  ADD CONSTRAINT `Battlefield_V_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `battlefield_v_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `Borderlands 2`
+--
+ALTER TABLE `Borderlands 2`
+  ADD CONSTRAINT `borderlands_2_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `Chat_Log`
+--
+ALTER TABLE `Chat_Log`
+  ADD CONSTRAINT `chat_log_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `Counter_Strike`
 --
 ALTER TABLE `Counter_Strike`
-  ADD CONSTRAINT `Counter_Strike_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `counter_strike_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `Fifa_19`
 --
 ALTER TABLE `Fifa_19`
-  ADD CONSTRAINT `Fifa_19_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `fifa_19_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `Football Manager 2019`
+--
+ALTER TABLE `Football Manager 2019`
+  ADD CONSTRAINT `football_manager_2019_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `Fortnite`
 --
 ALTER TABLE `Fortnite`
-  ADD CONSTRAINT `Fortnite_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `fortnite_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `Grand_Theft_Auto_V`
 --
 ALTER TABLE `Grand_Theft_Auto_V`
-  ADD CONSTRAINT `Grand_Theft_Auto_V_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `grand_theft_auto_v_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `Islanders`
+--
+ALTER TABLE `Islanders`
+  ADD CONSTRAINT `islanders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `Project Cars 2`
+--
+ALTER TABLE `Project Cars 2`
+  ADD CONSTRAINT `project_cars_2_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `RollarCoaster Tycoon Adventures`
+--
+ALTER TABLE `RollarCoaster Tycoon Adventures`
+  ADD CONSTRAINT `rollercoaster_tycoon_adventures_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `Super Dragon Ball Heroes World Mission`
+--
+ALTER TABLE `Super Dragon Ball Heroes World Mission`
+  ADD CONSTRAINT `super_dragon_ball_heroes_world_mission_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
