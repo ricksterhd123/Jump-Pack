@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 04, 2019 at 10:44 PM
+-- Generation Time: Apr 05, 2019 at 12:23 AM
 -- Server version: 8.0.13-4
 -- PHP Version: 7.2.15-0ubuntu0.18.04.2
 
@@ -71,6 +71,29 @@ INSERT INTO `Battlefield_V` (`user_id`, `purchased`, `installed`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Borderlands 2`
+--
+
+CREATE TABLE `Borderlands 2` (
+  `user_id` int(11) NOT NULL,
+  `purchased` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `installed` varchar(1) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `Borderlands 2`
+--
+
+INSERT INTO `Borderlands 2` (`user_id`, `purchased`, `installed`) VALUES
+(1, 'Y', 'Y'),
+(2, 'N', 'N'),
+(3, 'Y', 'N'),
+(4, 'Y', 'Y'),
+(5, 'Y', 'N');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `Chat_Log`
 --
 
@@ -125,6 +148,29 @@ INSERT INTO `Fifa_19` (`user_id`, `purchased`, `installed`) VALUES
 (2, 'Y', 'Y'),
 (3, 'Y', 'N'),
 (4, 'N', 'Y'),
+(5, 'N', 'N');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Football Manager 2019`
+--
+
+CREATE TABLE `Football Manager 2019` (
+  `user_id` int(11) NOT NULL,
+  `purchased` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `installed` varchar(1) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `Football Manager 2019`
+--
+
+INSERT INTO `Football Manager 2019` (`user_id`, `purchased`, `installed`) VALUES
+(1, 'Y', 'Y'),
+(2, 'Y', 'N'),
+(3, 'N', 'N'),
+(4, 'Y', 'Y'),
 (5, 'N', 'N');
 
 -- --------------------------------------------------------
@@ -207,6 +253,29 @@ INSERT INTO `Grand_Theft_Auto_V` (`user_id`, `purchased`, `installed`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `RollarCoaster Tycoon Adventures`
+--
+
+CREATE TABLE `RollarCoaster Tycoon Adventures` (
+  `user_id` int(11) NOT NULL,
+  `purchased` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `installed` varchar(1) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `RollarCoaster Tycoon Adventures`
+--
+
+INSERT INTO `RollarCoaster Tycoon Adventures` (`user_id`, `purchased`, `installed`) VALUES
+(1, 'N', 'N'),
+(2, 'Y', 'Y'),
+(3, 'N', 'N'),
+(4, 'N', 'N'),
+(5, 'Y', 'N');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `User_Account`
 --
 
@@ -236,13 +305,19 @@ INSERT INTO `User_Account` (`user_id`, `user_name`, `user_email`, `user_password
 -- Indexes for table `Apex_Legends`
 --
 ALTER TABLE `Apex_Legends`
-  ADD KEY `user_id` (`user_id`);
+  ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `Battlefield_V`
 --
 ALTER TABLE `Battlefield_V`
-  ADD KEY `user_id` (`user_id`);
+  ADD UNIQUE KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `Borderlands 2`
+--
+ALTER TABLE `Borderlands 2`
+  ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `Chat_Log`
@@ -254,19 +329,25 @@ ALTER TABLE `Chat_Log`
 -- Indexes for table `Counter_Strike`
 --
 ALTER TABLE `Counter_Strike`
-  ADD KEY `user_id` (`user_id`);
+  ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `Fifa_19`
 --
 ALTER TABLE `Fifa_19`
-  ADD KEY `user_id` (`user_id`);
+  ADD UNIQUE KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `Football Manager 2019`
+--
+ALTER TABLE `Football Manager 2019`
+  ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `Fortnite`
 --
 ALTER TABLE `Fortnite`
-  ADD KEY `user_id` (`user_id`);
+  ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `Games`
@@ -278,7 +359,13 @@ ALTER TABLE `Games`
 -- Indexes for table `Grand_Theft_Auto_V`
 --
 ALTER TABLE `Grand_Theft_Auto_V`
-  ADD KEY `user_id` (`user_id`);
+  ADD UNIQUE KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `RollarCoaster Tycoon Adventures`
+--
+ALTER TABLE `RollarCoaster Tycoon Adventures`
+  ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `User_Account`
@@ -303,6 +390,12 @@ ALTER TABLE `Battlefield_V`
   ADD CONSTRAINT `Battlefield_V_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
+-- Constraints for table `Borderlands 2`
+--
+ALTER TABLE `Borderlands 2`
+  ADD CONSTRAINT `borderlands_2_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
 -- Constraints for table `Counter_Strike`
 --
 ALTER TABLE `Counter_Strike`
@@ -315,6 +408,12 @@ ALTER TABLE `Fifa_19`
   ADD CONSTRAINT `Fifa_19_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
+-- Constraints for table `Football Manager 2019`
+--
+ALTER TABLE `Football Manager 2019`
+  ADD CONSTRAINT `football_manager_2019_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
 -- Constraints for table `Fortnite`
 --
 ALTER TABLE `Fortnite`
@@ -325,6 +424,12 @@ ALTER TABLE `Fortnite`
 --
 ALTER TABLE `Grand_Theft_Auto_V`
   ADD CONSTRAINT `Grand_Theft_Auto_V_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `RollarCoaster Tycoon Adventures`
+--
+ALTER TABLE `RollarCoaster Tycoon Adventures`
+  ADD CONSTRAINT `rollercoaster_tycoon_adventures_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
