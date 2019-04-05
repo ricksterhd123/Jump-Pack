@@ -21,7 +21,7 @@ public class Main {
                 // Throws IOException 
                 try {
                     new HomePage().setVisible(true);
-                }catch (IOException e){
+                }catch (Exception e){
                     // Get exception message
                     // TODO: Add alert popup
                     System.out.println(e.getMessage());

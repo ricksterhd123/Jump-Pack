@@ -379,7 +379,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="storeSearchBtn" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jScrollPane3" min="-2" pref="292" max="-2" attributes="0"/>
+                              <Component id="storeScrollPane" min="-2" pref="292" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="gamePanel" max="32767" attributes="0"/>
@@ -388,15 +388,17 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="storeGameSearchTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="storeSearchBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jScrollPane3" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="storeGameSearchTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="storeSearchBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="storeScrollPane" max="32767" attributes="0"/>
+                              </Group>
                               <Component id="gamePanel" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -404,7 +406,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+                <Container class="javax.swing.JScrollPane" name="storeScrollPane">
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
@@ -414,6 +416,9 @@
                           <StringArray count="0"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="storeGamesListMouseClicked"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
@@ -435,16 +440,16 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="storeGameImage" max="32767" attributes="0"/>
                                   <Component id="storeGameInfo" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="storeGameTitle" alignment="0" pref="585" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
+                          <Component id="gameTitleLabel" alignment="0" min="-2" pref="605" max="-2" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="storeGameTitle" min="-2" max="-2" attributes="0"/>
+                              <Component id="gameTitleLabel" min="-2" pref="29" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Component id="storeGameImage" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -475,17 +480,89 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="gamePriceLabel" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="gameCategoryLabel" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="gamePublisherLabel" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="gameProducerLabel" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="gameDescriptionLabel" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane2" alignment="0" min="-2" pref="565" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="423" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="gamePriceLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="gameDescriptionLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="gameCategoryLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="gamePublisherLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="gameProducerLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="229" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                         </DimensionLayout>
                       </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JLabel" name="gameDescriptionLabel">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Description:"/>
+                            <Property name="verticalAlignment" type="int" value="1"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="gamePriceLabel">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Price:"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="gameCategoryLabel">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Category:"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="gamePublisherLabel">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Publisher:"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="gameProducerLabel">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Producer:"/>
+                          </Properties>
+                        </Component>
+                        <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+                          <AuxValues>
+                            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                          </AuxValues>
+
+                          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                          <SubComponents>
+                            <Component class="javax.swing.JTextArea" name="gameDescriptionTextArea">
+                              <Properties>
+                                <Property name="columns" type="int" value="20"/>
+                                <Property name="rows" type="int" value="5"/>
+                                <Property name="wrapStyleWord" type="boolean" value="true"/>
+                                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                  <Border info="null"/>
+                                </Property>
+                              </Properties>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                      </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JLabel" name="storeGameTitle">
+                    <Component class="javax.swing.JLabel" name="gameTitleLabel">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="24" style="0"/>

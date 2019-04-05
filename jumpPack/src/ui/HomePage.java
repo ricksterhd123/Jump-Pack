@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import javax.swing.*;
+import org.json.JSONObject;
 import org.json.JSONArray;
 
 /**
@@ -73,13 +74,20 @@ public class HomePage extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         gamesList = new javax.swing.JList<>();
         Store = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        storeScrollPane = new javax.swing.JScrollPane();
         storeGamesList = new javax.swing.JList<>();
         storeGameSearchTxtField = new javax.swing.JTextField();
         gamePanel = new javax.swing.JPanel();
         storeGameImage = new javax.swing.JPanel();
         storeGameInfo = new javax.swing.JPanel();
-        storeGameTitle = new javax.swing.JLabel();
+        gameDescriptionLabel = new javax.swing.JLabel();
+        gamePriceLabel = new javax.swing.JLabel();
+        gameCategoryLabel = new javax.swing.JLabel();
+        gamePublisherLabel = new javax.swing.JLabel();
+        gameProducerLabel = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        gameDescriptionTextArea = new javax.swing.JTextArea();
+        gameTitleLabel = new javax.swing.JLabel();
         storeSearchBtn = new javax.swing.JButton();
         Friends = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -270,7 +278,12 @@ public class HomePage extends javax.swing.JFrame {
 
         Main.add(Library, "Library");
 
-        jScrollPane3.setViewportView(storeGamesList);
+        storeGamesList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                storeGamesListMouseClicked(evt);
+            }
+        });
+        storeScrollPane.setViewportView(storeGamesList);
 
         storeGameSearchTxtField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -289,20 +302,59 @@ public class HomePage extends javax.swing.JFrame {
             .addGap(0, 164, Short.MAX_VALUE)
         );
 
+        gameDescriptionLabel.setText("Description:");
+        gameDescriptionLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        gamePriceLabel.setText("Price:");
+
+        gameCategoryLabel.setText("Category:");
+
+        gamePublisherLabel.setText("Publisher:");
+
+        gameProducerLabel.setText("Producer:");
+
+        gameDescriptionTextArea.setColumns(20);
+        gameDescriptionTextArea.setRows(5);
+        gameDescriptionTextArea.setWrapStyleWord(true);
+        gameDescriptionTextArea.setBorder(null);
+        jScrollPane2.setViewportView(gameDescriptionTextArea);
+
         javax.swing.GroupLayout storeGameInfoLayout = new javax.swing.GroupLayout(storeGameInfo);
         storeGameInfo.setLayout(storeGameInfoLayout);
         storeGameInfoLayout.setHorizontalGroup(
             storeGameInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(storeGameInfoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(storeGameInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(gamePriceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(gameCategoryLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(gamePublisherLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(gameProducerLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(gameDescriptionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         storeGameInfoLayout.setVerticalGroup(
             storeGameInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 423, Short.MAX_VALUE)
+            .addGroup(storeGameInfoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(gamePriceLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(gameDescriptionLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(gameCategoryLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(gamePublisherLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(gameProducerLabel)
+                .addContainerGap(229, Short.MAX_VALUE))
         );
 
-        storeGameTitle.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        storeGameTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        storeGameTitle.setText("Game title");
+        gameTitleLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        gameTitleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        gameTitleLabel.setText("Game title");
 
         javax.swing.GroupLayout gamePanelLayout = new javax.swing.GroupLayout(gamePanel);
         gamePanel.setLayout(gamePanelLayout);
@@ -312,14 +364,14 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(storeGameImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(storeGameInfo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(storeGameTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE))
+                    .addComponent(storeGameInfo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addComponent(gameTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         gamePanelLayout.setVerticalGroup(
             gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(gamePanelLayout.createSequentialGroup()
-                .addComponent(storeGameTitle)
+                .addComponent(gameTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(storeGameImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -345,20 +397,21 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(storeGameSearchTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(storeSearchBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(storeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(gamePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         StoreLayout.setVerticalGroup(
             StoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, StoreLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(StoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(storeGameSearchTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(storeSearchBtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(StoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3)
+            .addGroup(StoreLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(StoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(StoreLayout.createSequentialGroup()
+                        .addGroup(StoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(storeGameSearchTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(storeSearchBtn))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(storeScrollPane))
                     .addComponent(gamePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -543,6 +596,15 @@ public class HomePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_storeSearchBtnMousePressed
 
+    private void storeGamesListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storeGamesListMouseClicked
+        // TODO add your handling code here:
+        try {
+            this.updateGameInfo();
+        } catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_storeGamesListMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Friends;
@@ -554,7 +616,14 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel Store;
     private javax.swing.JButton closeBtn;
     private javax.swing.JButton dotaBtn;
+    private javax.swing.JLabel gameCategoryLabel;
+    private javax.swing.JLabel gameDescriptionLabel;
+    private javax.swing.JTextArea gameDescriptionTextArea;
     private javax.swing.JPanel gamePanel;
+    private javax.swing.JLabel gamePriceLabel;
+    private javax.swing.JLabel gameProducerLabel;
+    private javax.swing.JLabel gamePublisherLabel;
+    private javax.swing.JLabel gameTitleLabel;
     private javax.swing.JLabel games;
     private javax.swing.JList<String> gamesList;
     private javax.swing.JButton jButton1;
@@ -565,15 +634,15 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel logo;
     private javax.swing.JButton minimizeBtn;
     private javax.swing.JLabel pic;
     private javax.swing.JPanel storeGameImage;
     private javax.swing.JPanel storeGameInfo;
     private javax.swing.JTextField storeGameSearchTxtField;
-    private javax.swing.JLabel storeGameTitle;
     private javax.swing.JList<String> storeGamesList;
+    private javax.swing.JScrollPane storeScrollPane;
     private javax.swing.JButton storeSearchBtn;
     private javax.swing.JLabel title;
     private javax.swing.JPanel windowBar;
@@ -650,7 +719,7 @@ public class HomePage extends javax.swing.JFrame {
         DefaultListModel DLM = new DefaultListModel();
         
         HttpClient client = new HttpClient();
-        String searchQuery = URLEncoder.encode(this.storeGameSearchTxtField.getText(), "ISO-8859-1");
+        String searchQuery = URLEncoder.encode(this.storeGameSearchTxtField.getText(), "ISO-8859-1"); // encode it before concatting to a URL
         System.out.println(searchQuery);
         JSONArray gamesNamesArray = client.getArray("https://jumppack.herokuapp.com/api/store?search=" + searchQuery);
         
@@ -663,5 +732,35 @@ public class HomePage extends javax.swing.JFrame {
         storeGamesList.setModel(DLM);
     }
     
+    /**
+     * Retrieves information about the selected game from the API and adds the data to each label in the game info pane.
+     * @throws IOException 
+     */
+    private void updateGameInfo() throws IOException {
+        String selectedGameTitle = this.storeGamesList.getSelectedValue();
+        String searchQuery = URLEncoder.encode(selectedGameTitle, "ISO-8859-1");    
+        HttpClient client = new HttpClient();
+        JSONArray gameInfoArray = client.getArray("https://jumppack.herokuapp.com/api/store?search=" + searchQuery);
+        
+        // check there is some data first
+        if (gameInfoArray.length() > 0){
+            JSONObject gameInfoObj = gameInfoArray.getJSONObject(0);
+            this.gameTitleLabel.setText(selectedGameTitle);
+            this.gameDescriptionTextArea.setText(gameInfoObj.getString("description"));
+            this.gameDescriptionTextArea.setLineWrap(true);
+            
+            // When the price is 0 or below, set price label "Price: FREE!"
+            int gamePrice = gameInfoObj.getInt("price");
+            String gamePriceStr = "£" + String.valueOf(gamePrice);
+            if (gamePrice <= 0) { 
+                gamePriceStr = "FREE!";
+            }
+            this.gamePriceLabel.setText("Price: " + gamePriceStr  );
+            this.gameProducerLabel.setText("Producer: " + gameInfoObj.getString("producer"));
+            this.gamePublisherLabel.setText("Publisher: " + gameInfoObj.getString("publisher"));
+            this.gameCategoryLabel.setText("Category: " + gameInfoObj.getString("game_category"));
+        }
+        
+    }
     
 }
