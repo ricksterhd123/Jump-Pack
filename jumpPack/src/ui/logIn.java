@@ -338,9 +338,21 @@ public class logIn extends javax.swing.JFrame {
      * @param evt The ActionEvent
      */
     private void logInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logInBtnActionPerformed
+        System.out.println("test0");
         String uname = userNameTxtField.getText();
         String pass = passTxtField.getText();
-
+        
+        HttpClient client = new HttpClient();
+        client.setBasicAuth(uname, pass);
+        String JWT = null;
+        try {
+            JWT = client.getString("https://jumppack.herokuapp.com/api/session");
+            System.out.println(JWT);
+        } catch (IOException e){
+            // TODO: Make error popup GUI or something
+            System.out.println(e.getMessage());
+        }
+        
         if (uname.equals("admin") && pass.equals("Password123")) {
 
             JOptionPane loginMsg = new JOptionPane("Logging in, Please wait...", JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new Object[]{}, null);
