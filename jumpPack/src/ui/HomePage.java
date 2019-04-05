@@ -63,22 +63,18 @@ public class HomePage extends javax.swing.JFrame {
         minimizeBtn = new javax.swing.JButton();
         Nav = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         pic = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         Main = new javax.swing.JPanel();
-        Library = new javax.swing.JPanel();
-        games = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        gamesList = new javax.swing.JList<>();
         Store = new javax.swing.JPanel();
         storeScrollPane = new javax.swing.JScrollPane();
         storeGamesList = new javax.swing.JList<>();
         storeGameSearchTxtField = new javax.swing.JTextField();
         gamePanel = new javax.swing.JPanel();
         storeGameImage = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         storeGameInfo = new javax.swing.JPanel();
         gameDescriptionLabel = new javax.swing.JLabel();
         gamePriceLabel = new javax.swing.JLabel();
@@ -89,6 +85,10 @@ public class HomePage extends javax.swing.JFrame {
         gameDescriptionTextArea = new javax.swing.JTextArea();
         gameTitleLabel = new javax.swing.JLabel();
         storeSearchBtn = new javax.swing.JButton();
+        Library = new javax.swing.JPanel();
+        games = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        gamesList = new javax.swing.JList<>();
         Friends = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         Home = new javax.swing.JPanel();
@@ -176,14 +176,6 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jButton1.setText("Home");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         jButton4.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jButton4.setText("Friends");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -207,28 +199,28 @@ public class HomePage extends javax.swing.JFrame {
         Nav.setLayout(NavLayout);
         NavLayout.setHorizontalGroup(
             NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pic, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(NavLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel5))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(pic, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NavLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         NavLayout.setVerticalGroup(
             NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(NavLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addComponent(jButton3)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
@@ -237,46 +229,6 @@ public class HomePage extends javax.swing.JFrame {
         );
 
         Main.setLayout(new java.awt.CardLayout());
-
-        Library.setBackground(new java.awt.Color(237, 137, 80));
-
-        games.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        games.setText("Games:");
-
-        gamesList.setBackground(new java.awt.Color(237, 137, 80));
-        gamesList.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        gamesList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(gamesList);
-
-        javax.swing.GroupLayout LibraryLayout = new javax.swing.GroupLayout(Library);
-        Library.setLayout(LibraryLayout);
-        LibraryLayout.setHorizontalGroup(
-            LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LibraryLayout.createSequentialGroup()
-                .addContainerGap(739, Short.MAX_VALUE)
-                .addGroup(LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LibraryLayout.createSequentialGroup()
-                        .addComponent(games)
-                        .addGap(66, 66, 66))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LibraryLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-        );
-        LibraryLayout.setVerticalGroup(
-            LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LibraryLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(games)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        Main.add(Library, "Library");
 
         storeGamesList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -291,15 +243,27 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setText("TODO: Game image");
+
         javax.swing.GroupLayout storeGameImageLayout = new javax.swing.GroupLayout(storeGameImage);
         storeGameImage.setLayout(storeGameImageLayout);
         storeGameImageLayout.setHorizontalGroup(
             storeGameImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(storeGameImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(storeGameImageLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel2)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         storeGameImageLayout.setVerticalGroup(
             storeGameImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 164, Short.MAX_VALUE)
+            .addGroup(storeGameImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(storeGameImageLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel2)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         gameDescriptionLabel.setText("Description:");
@@ -416,6 +380,46 @@ public class HomePage extends javax.swing.JFrame {
         );
 
         Main.add(Store, "Store");
+
+        Library.setBackground(new java.awt.Color(237, 137, 80));
+
+        games.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        games.setText("Games:");
+
+        gamesList.setBackground(new java.awt.Color(237, 137, 80));
+        gamesList.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        gamesList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(gamesList);
+
+        javax.swing.GroupLayout LibraryLayout = new javax.swing.GroupLayout(Library);
+        Library.setLayout(LibraryLayout);
+        LibraryLayout.setHorizontalGroup(
+            LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LibraryLayout.createSequentialGroup()
+                .addContainerGap(739, Short.MAX_VALUE)
+                .addGroup(LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LibraryLayout.createSequentialGroup()
+                        .addComponent(games)
+                        .addGap(66, 66, 66))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LibraryLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+        );
+        LibraryLayout.setVerticalGroup(
+            LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LibraryLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(games)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        Main.add(Library, "Library");
 
         jLabel4.setText("Friends");
 
@@ -540,11 +544,6 @@ public class HomePage extends javax.swing.JFrame {
         card.show(Main, "Friends");
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        CardLayout card = (CardLayout) Main.getLayout();
-        card.show(Main, "Home");
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         CardLayout card = (CardLayout) Main.getLayout();
         card.show(Main, "Library");
@@ -626,11 +625,11 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel gameTitleLabel;
     private javax.swing.JLabel games;
     private javax.swing.JList<String> gamesList;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
