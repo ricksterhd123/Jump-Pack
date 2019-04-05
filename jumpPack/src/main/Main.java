@@ -6,7 +6,6 @@
 package main;
 
 import java.io.IOException;
-import ui.HomePage;
 import ui.logIn;
 
 /**
@@ -22,11 +21,6 @@ public class Main {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new logIn().setVisible(true);
-                try {
-                new HomePage().setVisible(true);
-                } catch(IOException e){
-                    System.out.println(e.getMessage());
-                }
             }
         });
         
