@@ -6,7 +6,7 @@
 package main;
 
 import ui.logIn;
-
+import ui.HomePage;
 /**
  *
  * @author nicekor
@@ -19,7 +19,8 @@ public class Main {
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new logIn().setVisible(true);
+                // show home page
+                new HomePage().setVisible(true);
             }
         });
     }
