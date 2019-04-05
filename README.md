@@ -12,7 +12,7 @@ alternative to steam or discord.
  - Ahmed - Database design
  - Vihan - UX & UI
  - Ricky - Plan meetings Developer
- - Jose	- Developer
+ - Nicekor (up876126)	- Developer
  - Liam - Developer
 
 # Project road map
