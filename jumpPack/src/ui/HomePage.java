@@ -228,6 +228,7 @@ public class HomePage extends javax.swing.JFrame {
         games.setText("Games:");
 
         gamesList.setBackground(new java.awt.Color(237, 137, 80));
+        gamesList.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         gamesList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -544,6 +545,10 @@ public class HomePage extends javax.swing.JFrame {
 //        gamesScroll.add(new JButton("Apex Legends"));
 //    }
     
+    /**
+     * This method makes a GET request to our api and adds the data to the JList.
+     * @throws IOException 
+     */
     private void gamesLibrary() throws IOException {
         DefaultListModel DLM = new DefaultListModel();
         
