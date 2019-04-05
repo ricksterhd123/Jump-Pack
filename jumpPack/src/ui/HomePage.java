@@ -35,6 +35,7 @@ public class HomePage extends javax.swing.JFrame {
         initComponents();
         centerWindow();
         slideShow();
+        gamesLst();
         addResizableImageToBtn(closeBtn, "/images/close.png");
         addResizableImageToLbl(logo, "/images/jp_logo.png");
         addResizableImageToBtn(minimizeBtn, "/images/minimize.png");
@@ -65,7 +66,9 @@ public class HomePage extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         Main = new javax.swing.JPanel();
         Library = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        gamesScroll = new javax.swing.JScrollPane();
+        gamesPanel = new javax.swing.JPanel();
+        games = new javax.swing.JLabel();
         Store = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         Friends = new javax.swing.JPanel();
@@ -217,23 +220,47 @@ public class HomePage extends javax.swing.JFrame {
 
         Main.setLayout(new java.awt.CardLayout());
 
-        jLabel2.setText("Library");
+        gamesScroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        javax.swing.GroupLayout gamesPanelLayout = new javax.swing.GroupLayout(gamesPanel);
+        gamesPanel.setLayout(gamesPanelLayout);
+        gamesPanelLayout.setHorizontalGroup(
+            gamesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 201, Short.MAX_VALUE)
+        );
+        gamesPanelLayout.setVerticalGroup(
+            gamesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 619, Short.MAX_VALUE)
+        );
+
+        gamesScroll.setViewportView(gamesPanel);
+        gamesPanel.add(new JButton("Button 1"));
+
+        games.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        games.setText("Games:");
 
         javax.swing.GroupLayout LibraryLayout = new javax.swing.GroupLayout(Library);
         Library.setLayout(LibraryLayout);
         LibraryLayout.setHorizontalGroup(
             LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LibraryLayout.createSequentialGroup()
-                .addGap(0, 433, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(0, 433, Short.MAX_VALUE))
+                .addContainerGap(686, Short.MAX_VALUE)
+                .addGroup(LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LibraryLayout.createSequentialGroup()
+                        .addComponent(gamesScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LibraryLayout.createSequentialGroup()
+                        .addComponent(games)
+                        .addGap(66, 66, 66))))
         );
         LibraryLayout.setVerticalGroup(
             LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LibraryLayout.createSequentialGroup()
-                .addGap(0, 320, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(0, 320, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LibraryLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(games)
+                .addGap(11, 11, 11)
+                .addComponent(gamesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
         );
 
         Main.add(Library, "Library");
@@ -253,7 +280,7 @@ public class HomePage extends javax.swing.JFrame {
         );
         StoreLayout.setVerticalGroup(
             StoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 654, Short.MAX_VALUE)
+            .addGap(0, 675, Short.MAX_VALUE)
             .addGroup(StoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(StoreLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -278,7 +305,7 @@ public class HomePage extends javax.swing.JFrame {
         );
         FriendsLayout.setVerticalGroup(
             FriendsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 654, Short.MAX_VALUE)
+            .addGap(0, 675, Short.MAX_VALUE)
             .addGroup(FriendsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(FriendsLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -319,12 +346,12 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(HomeLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(dotaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(511, Short.MAX_VALUE))
+                .addContainerGap(532, Short.MAX_VALUE))
             .addGroup(HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeLayout.createSequentialGroup()
-                    .addContainerGap(320, Short.MAX_VALUE)
+                    .addContainerGap(330, Short.MAX_VALUE)
                     .addComponent(jLabel1)
-                    .addContainerGap(320, Short.MAX_VALUE)))
+                    .addContainerGap(331, Short.MAX_VALUE)))
         );
 
         Main.add(Home, "Home");
@@ -394,6 +421,7 @@ public class HomePage extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         CardLayout card = (CardLayout) Main.getLayout();
         card.show(Main, "Library");
+        gamesLst();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void windowBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_windowBarMousePressed
@@ -413,10 +441,11 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_windowBarMouseClicked
 
     private void windowBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_windowBarMouseDragged
-        setSize(1280, 720);
         int pX = evt.getXOnScreen();
         int pY = evt.getYOnScreen();
         this.setLocation(pX - mousepX, pY - mousepY);
+        setSize(1280, 720);
+        
     }//GEN-LAST:event_windowBarMouseDragged
 
     private void minimizeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimizeBtnActionPerformed
@@ -438,12 +467,14 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel Store;
     private javax.swing.JButton closeBtn;
     private javax.swing.JButton dotaBtn;
+    private javax.swing.JLabel games;
+    private javax.swing.JPanel gamesPanel;
+    private javax.swing.JScrollPane gamesScroll;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -511,6 +542,13 @@ public class HomePage extends javax.swing.JFrame {
         Image img2 = img1.getScaledInstance(pic.getWidth(), pic.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon p = new ImageIcon(img2);
         pic.setIcon(p);
+    }
+
+    private void gamesLst() {
+       gamesPanel.add(new JButton("Apex Legends")); 
+       gamesScroll.add(new JButton("Apex Legends")); 
+       
+       
     }
 
 }
