@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 
 /**
- *
+ * Simple HttpClient connection with support for both basic and JWT auth headers.
  * @author nicekor
  */
 public class HttpClient {
@@ -41,10 +41,20 @@ public class HttpClient {
         });
     }
     
+    /**
+     * Set the authentication header with a Bearer token followed by a JWT
+     * @param JWTEncodedString - The JWT string.
+     */
     public void setJWTAuth(String JWTEncodedString){
         // todo
     }
     
+    /**
+     * GET HTTP response string from URL
+     * @param url
+     * @return String response
+     * @throws IOException 
+     */
     public String getString(String url) throws IOException {
         Request request = new Request.Builder()
                 .url(url)
@@ -57,6 +67,13 @@ public class HttpClient {
             return response.body().string();
         }
     }
+    
+    /**
+     * GET HTTP response as JSONArray
+     * @param url
+     * @return JSONArray response
+     * @throws IOException 
+     */
     public JSONArray getArray(String url) throws IOException {
         Request request = new Request.Builder()
                 .url(url)
