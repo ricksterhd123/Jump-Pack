@@ -5,7 +5,7 @@
  */
 package ui;
 
-import com.sun.glass.events.KeyEvent;
+import java.awt.event.KeyEvent;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Dimension;

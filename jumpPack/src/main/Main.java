@@ -5,6 +5,8 @@
  */
 package main;
 
+import java.io.IOException;
+import ui.HomePage;
 import ui.logIn;
 
 /**
@@ -16,12 +18,18 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new logIn().setVisible(true);
+                try {
+                new HomePage().setVisible(true);
+                } catch(IOException e){
+                    System.out.println(e.getMessage());
+                }
             }
         });
+        
     }
     
 }
