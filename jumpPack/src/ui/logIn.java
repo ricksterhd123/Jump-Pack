@@ -348,13 +348,7 @@ public class logIn extends javax.swing.JFrame {
         try {
             JWT = client.getString("https://jumppack.herokuapp.com/api/session");
             System.out.println(JWT);
-        } catch (IOException e){
-            // TODO: Make error popup GUI or something
-            System.out.println(e.getMessage());
-        }
-        
-        if (uname.equals("admin") && pass.equals("Password123")) {
-
+            
             JOptionPane loginMsg = new JOptionPane("Logging in, Please wait...", JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new Object[]{}, null);
             final JDialog msg = loginMsg.createDialog(this, "Connecting..");
 
@@ -383,9 +377,12 @@ public class logIn extends javax.swing.JFrame {
                 Logger.getLogger(logIn.class.getName()).log(Level.SEVERE, null, ex);
             }
             a.setVisible(true);
-        } else {
+        } catch (IOException e){
+            // TODO: Make error popup GUI or something
+            System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(null, "Incorrect Username or Password", "Error", JOptionPane.ERROR_MESSAGE);
         }
+        
     }//GEN-LAST:event_logInBtnActionPerformed
 
     /**

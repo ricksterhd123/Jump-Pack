@@ -32,10 +32,11 @@ public class HttpClient {
         client.authenticator(new Authenticator() {
             @Override
             public Request authenticate(Route route, Response response) throws IOException {
-                System.out.println(response.code());
-                if (response.code() == 401){ throw new IOException(); }
+                System.out.println(response.message());
+                //if (response.code() == 401){ throw new IOException(); }
                 String credential = Credentials.basic(username, password);
-                return response.request().newBuilder().header("Authorization", credential).build();
+                System.out.println(credential);
+                return response.request().newBuilder().header("authorization", credential).build();
             }
         });
     }
@@ -51,6 +52,8 @@ public class HttpClient {
         
         OkHttpClient c = this.client.build();
         try (Response response = c.newCall(request).execute()) {
+            System.out.println(response.code());
+            if (response.code() == 401){ throw new IOException(); }
             return response.body().string();
         }
     }
