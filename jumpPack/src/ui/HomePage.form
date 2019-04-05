@@ -311,7 +311,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="games" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" pref="636" max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" pref="639" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -371,14 +371,15 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jScrollPane3" min="-2" pref="292" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel2" min="-2" pref="55" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="storeGameSearchTxtField" max="32767" attributes="0"/>
+                                  <Component id="storeGameSearchTxtField" min="-2" pref="208" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="storeSearchBtn" max="32767" attributes="0"/>
                               </Group>
+                              <Component id="jScrollPane3" min="-2" pref="292" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="gamePanel" max="32767" attributes="0"/>
@@ -391,7 +392,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="storeGameSearchTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="storeSearchBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -423,12 +424,6 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="storeGameSearchTxtFieldActionPerformed"/>
                   </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel2">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Search"/>
-                  </Properties>
                 </Component>
                 <Container class="javax.swing.JPanel" name="gamePanel">
 
@@ -501,6 +496,14 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JButton" name="storeSearchBtn">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="search"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="storeSearchBtnMousePressed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="Friends">
@@ -525,7 +528,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="696" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="699" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -573,13 +576,13 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                           <Component id="dotaBtn" min="-2" pref="110" max="-2" attributes="0"/>
-                          <EmptySpace pref="553" max="32767" attributes="0"/>
+                          <EmptySpace pref="556" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="341" max="32767" attributes="0"/>
+                              <EmptySpace pref="342" max="32767" attributes="0"/>
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="341" max="32767" attributes="0"/>
+                              <EmptySpace pref="343" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>

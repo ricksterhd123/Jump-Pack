@@ -6,6 +6,7 @@
 package ui;
 
 import httpClient.HttpClient;
+import java.net.URLEncoder;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -37,7 +38,7 @@ public class HomePage extends javax.swing.JFrame {
         centerWindow();
         slideShow();
 //        gamesLst();
-        gamesLibrary();
+        this.updateStoreList();
         addResizableImageToBtn(closeBtn, "/images/close.png");
         addResizableImageToLbl(logo, "/images/jp_logo.png");
         addResizableImageToBtn(minimizeBtn, "/images/minimize.png");
@@ -75,11 +76,11 @@ public class HomePage extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         storeGamesList = new javax.swing.JList<>();
         storeGameSearchTxtField = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         gamePanel = new javax.swing.JPanel();
         storeGameImage = new javax.swing.JPanel();
         storeGameInfo = new javax.swing.JPanel();
         storeGameTitle = new javax.swing.JLabel();
+        storeSearchBtn = new javax.swing.JButton();
         Friends = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         Home = new javax.swing.JPanel();
@@ -263,7 +264,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(games)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -276,9 +277,6 @@ public class HomePage extends javax.swing.JFrame {
                 storeGameSearchTxtFieldActionPerformed(evt);
             }
         });
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Search");
 
         javax.swing.GroupLayout storeGameImageLayout = new javax.swing.GroupLayout(storeGameImage);
         storeGameImage.setLayout(storeGameImageLayout);
@@ -329,17 +327,25 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        storeSearchBtn.setText("search");
+        storeSearchBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                storeSearchBtnMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout StoreLayout = new javax.swing.GroupLayout(Store);
         Store.setLayout(StoreLayout);
         StoreLayout.setHorizontalGroup(
             StoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(StoreLayout.createSequentialGroup()
                 .addGroup(StoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, StoreLayout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap()
+                        .addComponent(storeGameSearchTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(storeGameSearchTxtField)))
+                        .addComponent(storeSearchBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(gamePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -349,7 +355,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(StoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(storeGameSearchTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(storeSearchBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(StoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane3)
@@ -373,7 +379,7 @@ public class HomePage extends javax.swing.JFrame {
         );
         FriendsLayout.setVerticalGroup(
             FriendsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 696, Short.MAX_VALUE)
+            .addGap(0, 699, Short.MAX_VALUE)
             .addGroup(FriendsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(FriendsLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -414,12 +420,12 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(HomeLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(dotaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(553, Short.MAX_VALUE))
+                .addContainerGap(556, Short.MAX_VALUE))
             .addGroup(HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeLayout.createSequentialGroup()
-                    .addContainerGap(341, Short.MAX_VALUE)
+                    .addContainerGap(342, Short.MAX_VALUE)
                     .addComponent(jLabel1)
-                    .addContainerGap(341, Short.MAX_VALUE)))
+                    .addContainerGap(343, Short.MAX_VALUE)))
         );
 
         Main.add(Home, "Home");
@@ -528,6 +534,15 @@ public class HomePage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_storeGameSearchTxtFieldActionPerformed
 
+    private void storeSearchBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storeSearchBtnMousePressed
+        // TODO add your handling code here:
+        try {
+            this.updateStoreList();
+        } catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_storeSearchBtnMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Friends;
@@ -547,7 +562,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
@@ -560,6 +574,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JTextField storeGameSearchTxtField;
     private javax.swing.JLabel storeGameTitle;
     private javax.swing.JList<String> storeGamesList;
+    private javax.swing.JButton storeSearchBtn;
     private javax.swing.JLabel title;
     private javax.swing.JPanel windowBar;
     // End of variables declaration//GEN-END:variables
@@ -631,16 +646,19 @@ public class HomePage extends javax.swing.JFrame {
      * This method makes a GET request to our api and adds the data to the JList.
      * @throws IOException 
      */
-    private void gamesLibrary() throws IOException {
+    private void updateStoreList() throws IOException {
         DefaultListModel DLM = new DefaultListModel();
         
         HttpClient client = new HttpClient();
-        JSONArray gamesNamesArray = client.getArray("https://jumppack.herokuapp.com/api/store");
+        String searchQuery = URLEncoder.encode(this.storeGameSearchTxtField.getText(), "ISO-8859-1");
+        System.out.println(searchQuery);
+        JSONArray gamesNamesArray = client.getArray("https://jumppack.herokuapp.com/api/store?search=" + searchQuery);
         
         String gameName = "";
         for (int i = 0; i < gamesNamesArray.length(); i++) {
             gameName = gamesNamesArray.getJSONObject(i).getString("game_name");
             DLM.addElement(gameName);
+            System.out.println(gameName);
         }
         storeGamesList.setModel(DLM);
     }
