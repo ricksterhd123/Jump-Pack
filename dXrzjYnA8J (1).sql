@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 05, 2019 at 12:23 AM
+-- Generation Time: Apr 05, 2019 at 01:04 AM
 -- Server version: 8.0.13-4
 -- PHP Version: 7.2.15-0ubuntu0.18.04.2
 
@@ -225,7 +225,10 @@ INSERT INTO `Games` (`game_id`, `game_name`, `game_category`, `description`, `pr
 (6, 'Grand Theft Auto V', 'Open World', 'The game is played from either a third-person or first-person perspective and its world is navigated on foot or by vehicle. Players control the three lead protagonists throughout single-player and switch between them both during and outside missions. The story is centred on the heist sequences, and many missions involve shooting and driving gameplay. A \"wanted\" system governs the aggression of law enforcement response to players who commit crimes.', '25', 'Rockstar Games', 'Rockstar North'),
 (7, 'Football Manager 2019', 'Sport', 'Simulation gaming perfected. Create your unique footballing story by taking charge of the club you love. Complete control of this stunningly realistic game world is yours - every decision in your hands, or yours to delegate. Your call, your way, your story. Everything you\'ve ever dreamed of!', '38', 'SEGA', 'Sports Interactive'),
 (8, 'Borderlands 2', 'FPS', 'Shoot and loot as you explore the mayhem-filled world of Pandora in Borderlands 2 and the lunar madness of Borderlands: The Pre-Sequel in Borderlands: The Handsome Collection. Experience the award-winning FPS-RPG series, including its bazillions of guns, trademark cooperative gameplay, and all bonus add-on content.\r\n', '20', '2K', 'Gearbox Software'),
-(9, 'RollarCoaster Tycoon Adventures ', 'Simulation', 'Casual, user-friendly park simulation and a cheery new visual style let players of all ages create the theme park of their dreams!', '25', 'Atari', 'Nvizzio Creations');
+(9, 'RollarCoaster Tycoon Adventures ', 'Simulation', 'Casual, user-friendly park simulation and a cheery new visual style let players of all ages create the theme park of their dreams!', '25', 'Atari', 'Nvizzio Creations'),
+(10, 'Islanders', 'Indie', 'A minimalist strategy game about building cities on colorful islands.', '5', 'GrizzlyGames', 'GrizzlyGames'),
+(11, 'Project Cars 2', 'Racing', 'Project Cars 2 delivers the soul of motor racing in the world’s most beautiful, authentic, and technically-advanced racing game.', '45', 'BANDAI NAMCO Entertainment', 'Slightly Mad Studios'),
+(12, 'Super Dragon Ball Heros World Mission', 'Strategy', 'A Tactical-Card game packed with exhilarating confrontation, deep card game strategy and a thrilling storyline taking place in the wide Dragon Ball Heroes universe!', '40', ' BANDAI NAMCO Entertainment', 'Dimps Corporation');
 
 -- --------------------------------------------------------
 
@@ -253,6 +256,52 @@ INSERT INTO `Grand_Theft_Auto_V` (`user_id`, `purchased`, `installed`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Islanders`
+--
+
+CREATE TABLE `Islanders` (
+  `user_id` int(11) NOT NULL,
+  `purchased` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `installed` varchar(1) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `Islanders`
+--
+
+INSERT INTO `Islanders` (`user_id`, `purchased`, `installed`) VALUES
+(1, 'N', 'N'),
+(2, 'Y', 'N'),
+(3, 'Y', 'N'),
+(4, 'N', 'N'),
+(5, 'Y', 'Y');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Project Cars 2`
+--
+
+CREATE TABLE `Project Cars 2` (
+  `user_id` int(11) NOT NULL,
+  `purchased` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `installed` varchar(1) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `Project Cars 2`
+--
+
+INSERT INTO `Project Cars 2` (`user_id`, `purchased`, `installed`) VALUES
+(1, 'N', 'N'),
+(2, 'Y', 'Y'),
+(3, 'Y', 'N'),
+(4, 'N', 'N'),
+(5, 'Y', 'Y');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `RollarCoaster Tycoon Adventures`
 --
 
@@ -272,6 +321,29 @@ INSERT INTO `RollarCoaster Tycoon Adventures` (`user_id`, `purchased`, `installe
 (3, 'N', 'N'),
 (4, 'N', 'N'),
 (5, 'Y', 'N');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Super Dragon Ball Heroes World Mission`
+--
+
+CREATE TABLE `Super Dragon Ball Heroes World Mission` (
+  `user_id` int(11) NOT NULL,
+  `purchased` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `installed` varchar(1) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `Super Dragon Ball Heroes World Mission`
+--
+
+INSERT INTO `Super Dragon Ball Heroes World Mission` (`user_id`, `purchased`, `installed`) VALUES
+(1, 'Y', 'Y'),
+(2, 'Y', 'Y'),
+(3, 'Y', 'Y'),
+(4, 'Y', 'Y'),
+(5, 'Y', 'Y');
 
 -- --------------------------------------------------------
 
@@ -362,9 +434,27 @@ ALTER TABLE `Grand_Theft_Auto_V`
   ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `Islanders`
+--
+ALTER TABLE `Islanders`
+  ADD UNIQUE KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `Project Cars 2`
+--
+ALTER TABLE `Project Cars 2`
+  ADD UNIQUE KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `RollarCoaster Tycoon Adventures`
 --
 ALTER TABLE `RollarCoaster Tycoon Adventures`
+  ADD UNIQUE KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `Super Dragon Ball Heroes World Mission`
+--
+ALTER TABLE `Super Dragon Ball Heroes World Mission`
   ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
@@ -426,10 +516,28 @@ ALTER TABLE `Grand_Theft_Auto_V`
   ADD CONSTRAINT `Grand_Theft_Auto_V_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
+-- Constraints for table `Islanders`
+--
+ALTER TABLE `Islanders`
+  ADD CONSTRAINT `islanders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `Project Cars 2`
+--
+ALTER TABLE `Project Cars 2`
+  ADD CONSTRAINT `project_cars_2_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
 -- Constraints for table `RollarCoaster Tycoon Adventures`
 --
 ALTER TABLE `RollarCoaster Tycoon Adventures`
   ADD CONSTRAINT `rollercoaster_tycoon_adventures_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `Super Dragon Ball Heroes World Mission`
+--
+ALTER TABLE `Super Dragon Ball Heroes World Mission`
+  ADD CONSTRAINT `super_dragon_ball_heroes_world_mission_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User_Account` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
