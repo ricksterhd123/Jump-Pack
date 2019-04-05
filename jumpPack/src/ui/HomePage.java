@@ -635,15 +635,14 @@ public class HomePage extends javax.swing.JFrame {
         DefaultListModel DLM = new DefaultListModel();
         
         HttpClient client = new HttpClient();
-        JSONArray gamesNamesArray = client.getArray("https://jumppack.herokuapp.com/api/store/games");
+        JSONArray gamesNamesArray = client.getArray("https://jumppack.herokuapp.com/api/store");
         
         String gameName = "";
         for (int i = 0; i < gamesNamesArray.length(); i++) {
             gameName = gamesNamesArray.getJSONObject(i).getString("game_name");
             DLM.addElement(gameName);
         }
-        gamesList.setModel(DLM);
-        
+        storeGamesList.setModel(DLM);
     }
     
     
