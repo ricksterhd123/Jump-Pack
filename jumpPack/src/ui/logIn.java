@@ -14,6 +14,8 @@ import java.awt.Toolkit;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -363,7 +365,12 @@ public class logIn extends javax.swing.JFrame {
 
             msg.setVisible(true);
             dispose();
-            HomePage a = new HomePage();
+            HomePage a = null;
+            try {
+                a = new HomePage();
+            } catch (IOException ex) {
+                Logger.getLogger(logIn.class.getName()).log(Level.SEVERE, null, ex);
+            }
             a.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Incorrect Username or Password", "Error", JOptionPane.ERROR_MESSAGE);

@@ -5,6 +5,7 @@
  */
 package ui;
 
+import httpClient.HttpClient;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -12,7 +13,9 @@ import javax.swing.ImageIcon;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import javax.swing.*;
+import org.json.JSONArray;
 
 /**
  *
@@ -25,17 +28,16 @@ public class HomePage extends javax.swing.JFrame {
      */
     private int mousepX; // position X of the mouse when pressed
     private int mousepY; // position Y of the mouse when pressed
-    
-     
+
     int x = 0;
     Timer timer;
-      
-        
-    public HomePage() {
+
+    public HomePage() throws IOException {
         initComponents();
         centerWindow();
         slideShow();
-        gamesLst();
+//        gamesLst();
+        gamesLibrary();
         addResizableImageToBtn(closeBtn, "/images/close.png");
         addResizableImageToLbl(logo, "/images/jp_logo.png");
         addResizableImageToBtn(minimizeBtn, "/images/minimize.png");
@@ -66,9 +68,9 @@ public class HomePage extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         Main = new javax.swing.JPanel();
         Library = new javax.swing.JPanel();
-        gamesScroll = new javax.swing.JScrollPane();
-        gamesPanel = new javax.swing.JPanel();
         games = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        gamesList = new javax.swing.JList<>();
         Store = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         Friends = new javax.swing.JPanel();
@@ -220,47 +222,41 @@ public class HomePage extends javax.swing.JFrame {
 
         Main.setLayout(new java.awt.CardLayout());
 
-        gamesScroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
-        javax.swing.GroupLayout gamesPanelLayout = new javax.swing.GroupLayout(gamesPanel);
-        gamesPanel.setLayout(gamesPanelLayout);
-        gamesPanelLayout.setHorizontalGroup(
-            gamesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 201, Short.MAX_VALUE)
-        );
-        gamesPanelLayout.setVerticalGroup(
-            gamesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 619, Short.MAX_VALUE)
-        );
-
-        gamesScroll.setViewportView(gamesPanel);
-        gamesPanel.add(new JButton("Button 1"));
+        Library.setBackground(new java.awt.Color(237, 137, 80));
 
         games.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         games.setText("Games:");
+
+        gamesList.setBackground(new java.awt.Color(237, 137, 80));
+        gamesList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(gamesList);
 
         javax.swing.GroupLayout LibraryLayout = new javax.swing.GroupLayout(Library);
         Library.setLayout(LibraryLayout);
         LibraryLayout.setHorizontalGroup(
             LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LibraryLayout.createSequentialGroup()
-                .addContainerGap(686, Short.MAX_VALUE)
+                .addContainerGap(739, Short.MAX_VALUE)
                 .addGroup(LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LibraryLayout.createSequentialGroup()
-                        .addComponent(gamesScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LibraryLayout.createSequentialGroup()
                         .addComponent(games)
-                        .addGap(66, 66, 66))))
+                        .addGap(66, 66, 66))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LibraryLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         LibraryLayout.setVerticalGroup(
             LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LibraryLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(games)
-                .addGap(11, 11, 11)
-                .addComponent(gamesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
-                .addGap(18, 18, 18))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         Main.add(Library, "Library");
@@ -421,7 +417,7 @@ public class HomePage extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         CardLayout card = (CardLayout) Main.getLayout();
         card.show(Main, "Library");
-        gamesLst();
+//        gamesLst();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void windowBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_windowBarMousePressed
@@ -445,7 +441,7 @@ public class HomePage extends javax.swing.JFrame {
         int pY = evt.getYOnScreen();
         this.setLocation(pX - mousepX, pY - mousepY);
         setSize(1280, 720);
-        
+
     }//GEN-LAST:event_windowBarMouseDragged
 
     private void minimizeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimizeBtnActionPerformed
@@ -468,8 +464,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton closeBtn;
     private javax.swing.JButton dotaBtn;
     private javax.swing.JLabel games;
-    private javax.swing.JPanel gamesPanel;
-    private javax.swing.JScrollPane gamesScroll;
+    private javax.swing.JList<String> gamesList;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -478,6 +473,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logo;
     private javax.swing.JButton minimizeBtn;
     private javax.swing.JLabel pic;
@@ -509,34 +505,33 @@ public class HomePage extends javax.swing.JFrame {
 
         label.setIcon(i);
     }
-    
-    private void slideShow(){
+
+    private void slideShow() {
         SetImage(4);
-        
-        timer = new Timer(1700,new ActionListener() {
+
+        timer = new Timer(1700, new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 SetImage(x);
                 x += 1;
-                if(x >= 5){
-                    x = 0; 
-               }
+                if (x >= 5) {
+                    x = 0;
+                }
             }
-        }); timer.start();
-        
-    };
-        
-  
+        });
+        timer.start();
+    }
+
     private void SetImage(int i) {
         String[] list = {
-                     "/images/anthem.jpeg",
-                     "/images/apex.jpg",
-                     "/images/Devil-May-Cry.jpg",
-                     "/images/sekiro.PNG",
-                     "/images/tc2.jpg"
+            "/images/anthem.jpeg",
+            "/images/apex.jpg",
+            "/images/Devil-May-Cry.jpg",
+            "/images/sekiro.PNG",
+            "/images/tc2.jpg"
         };
-               
+
         ImageIcon myImage = new ImageIcon((Toolkit.getDefaultToolkit().getImage(getClass().getResource(list[i]))));
         Image img1 = myImage.getImage();
         Image img2 = img1.getScaledInstance(pic.getWidth(), pic.getHeight(), Image.SCALE_SMOOTH);
@@ -544,11 +539,25 @@ public class HomePage extends javax.swing.JFrame {
         pic.setIcon(p);
     }
 
-    private void gamesLst() {
-       gamesPanel.add(new JButton("Apex Legends")); 
-       gamesScroll.add(new JButton("Apex Legends")); 
-       
-       
+//    private void gamesLst() {
+//        gamesPanel.add(new JButton("Apex Legends"));
+//        gamesScroll.add(new JButton("Apex Legends"));
+//    }
+    
+    private void gamesLibrary() throws IOException {
+        DefaultListModel DLM = new DefaultListModel();
+        
+        HttpClient client = new HttpClient();
+        JSONArray gamesNamesArray = client.getArray("https://jumppack.herokuapp.com/api/store/games");
+        
+        String gameName = "";
+        for (int i = 0; i < gamesNamesArray.length(); i++) {
+            gameName = gamesNamesArray.getJSONObject(i).getString("game_name");
+            DLM.addElement(gameName);
+        }
+        gamesList.setModel(DLM);
+        
     }
-
+    
+    
 }
