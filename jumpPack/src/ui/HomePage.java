@@ -44,6 +44,7 @@ public class HomePage extends javax.swing.JFrame {
         addResizableImageToLbl(logo, "/images/jp_logo.png");
         addResizableImageToBtn(minimizeBtn, "/images/minimize.png");
         addResizableImageToBtn(dotaBtn, "/images/dota.png.jpg");
+        this.gamePanel.setVisible(false);
     }
 
     /**
@@ -89,6 +90,8 @@ public class HomePage extends javax.swing.JFrame {
         games = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         gamesList = new javax.swing.JList<>();
+        jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         Friends = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         Home = new javax.swing.JPanel();
@@ -243,6 +246,8 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        gamePanel.setEnabled(false);
+
         jLabel2.setText("TODO: Game image");
 
         javax.swing.GroupLayout storeGameImageLayout = new javax.swing.GroupLayout(storeGameImage);
@@ -395,27 +400,47 @@ public class HomePage extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(gamesList);
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 723, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jButton1.setText("Add game");
+
         javax.swing.GroupLayout LibraryLayout = new javax.swing.GroupLayout(Library);
         Library.setLayout(LibraryLayout);
         LibraryLayout.setHorizontalGroup(
             LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LibraryLayout.createSequentialGroup()
-                .addContainerGap(739, Short.MAX_VALUE)
-                .addGroup(LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LibraryLayout.createSequentialGroup()
-                        .addComponent(games)
-                        .addGap(66, 66, 66))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LibraryLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                .addContainerGap()
+                .addGroup(LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(games, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         LibraryLayout.setVerticalGroup(
             LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LibraryLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(games)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
+                .addGroup(LibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(LibraryLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(games)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1))
+                    .addGroup(LibraryLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -625,6 +650,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel gameTitleLabel;
     private javax.swing.JLabel games;
     private javax.swing.JList<String> gamesList;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -632,6 +658,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel logo;
@@ -758,6 +785,10 @@ public class HomePage extends javax.swing.JFrame {
             this.gameProducerLabel.setText("Producer: " + gameInfoObj.getString("producer"));
             this.gamePublisherLabel.setText("Publisher: " + gameInfoObj.getString("publisher"));
             this.gameCategoryLabel.setText("Category: " + gameInfoObj.getString("game_category"));
+            
+            this.gamePanel.setVisible(true);
+        } else{
+            this.gamePanel.setVisible(false);
         }
         
     }
